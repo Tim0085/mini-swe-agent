@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "catalog_count": 500,
+  "matched_instance": "django__django-10097",
+  "data_cached": true,
+  "environment": "cached",
+  "has_patch": true,
+  "unchecked_consents": 5,
+  "page_errors": 0,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "user_browser_touched": false
+}

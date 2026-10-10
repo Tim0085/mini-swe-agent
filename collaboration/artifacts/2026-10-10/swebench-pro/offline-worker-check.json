@@ -1,0 +1,69 @@
+{
+  "source_version": "93ba799332d25bf1",
+  "dataset": "pro-v2-2d52cb3d",
+  "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+  "image_id": "sha256:ca6ba92316b90aa0227bc18c97fb0b458d415f216416fe3c3b0ad526f41cc017",
+  "external_model_calls": 0,
+  "image_downloads": 0,
+  "scenarios": [
+    {
+      "scenario": "submitted",
+      "run_id": "20261010-002859-dbd8dfab",
+      "local_protocol_requests": 2,
+      "exit_status": "Submitted",
+      "worker_status": "completed",
+      "worker_exit_code": 0,
+      "patch_capture": {
+        "source": "container_git_diff",
+        "partial": false,
+        "reason": "Submitted",
+        "captured": true
+      },
+      "actual_diff_has_committed_and_untracked_files": true,
+      "echoed_fake_patch_ignored": true,
+      "queue_status": "running",
+      "next_stage_index": 1,
+      "containers_cleaned": true
+    },
+    {
+      "scenario": "partial",
+      "run_id": "20261010-002908-fd9f2efc",
+      "local_protocol_requests": 1,
+      "exit_status": "LimitsExceeded",
+      "worker_status": "completed",
+      "worker_exit_code": 0,
+      "patch_capture": {
+        "source": "container_git_diff",
+        "partial": true,
+        "reason": "LimitsExceeded",
+        "captured": true
+      },
+      "actual_diff_has_committed_and_untracked_files": true,
+      "echoed_fake_patch_ignored": true,
+      "queue_status": "running",
+      "next_stage_index": 1,
+      "containers_cleaned": true
+    },
+    {
+      "scenario": "http502",
+      "run_id": "20261010-002917-dc9e67ef",
+      "local_protocol_requests": 2,
+      "exit_status": "BadGatewayError",
+      "worker_status": "failed",
+      "worker_exit_code": 1,
+      "patch_capture": {
+        "source": "container_git_diff",
+        "partial": true,
+        "reason": "BadGatewayError",
+        "captured": true
+      },
+      "actual_diff_has_committed_and_untracked_files": true,
+      "echoed_fake_patch_ignored": true,
+      "queue_status": "paused",
+      "next_stage_index": 0,
+      "containers_cleaned": true
+    }
+  ],
+  "passed": true,
+  "isolated_state": ".local\\webui\\pro-20261010\\worker-solve-c205d516"
+}

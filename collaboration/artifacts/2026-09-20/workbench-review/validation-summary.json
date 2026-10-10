@@ -1,0 +1,48 @@
+{
+  "verified_at": "2026-09-20T15:03:12+00:00",
+  "source_fingerprint": "0197049e2afbc780",
+  "pytest": {
+    "passed": 87,
+    "warnings": 3
+  },
+  "browser": {
+    "passed": true,
+    "desktop": true,
+    "mobile": 390,
+    "matrix_drilldown": true,
+    "empty_selection": true,
+    "no_common_cases": true,
+    "real_test_counts": true,
+    "response_text": true,
+    "keyboard_tabs": true,
+    "errors": []
+  },
+  "protected_files_unchanged": 61,
+  "production_source_matches": true,
+  "new_python_dependencies": 0,
+  "downloads": 0,
+  "paid_trial": {
+    "model": "gpt-5.5",
+    "instance_id": "astropy__astropy-12907",
+    "queue_id": "20260920-225315-99fd3d48",
+    "solve_id": "20260920-225323-c0b8ff2f",
+    "evaluation_id": "20260920-230025-140a63ec",
+    "resolved": true,
+    "repair_passed": 2,
+    "repair_total": 2,
+    "regression_passed": 13,
+    "regression_total": 13,
+    "model_calls": 10,
+    "estimated_usd": 0.21239799999999998,
+    "budget_usd": 3,
+    "exact_patch_association": true,
+    "host_initialization_failures": 0,
+    "cleanup_pending": false
+  },
+  "scope_note": "One selected cached case; not a model ranking or full benchmark result.",
+  "focused_retest_passed": 15,
+  "default_comparison_models": [
+    "openai/gpt-5.6-luna",
+    "openai/gpt-6-astra"
+  ]
+}

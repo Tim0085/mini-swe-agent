@@ -1,0 +1,75 @@
+{
+  "review_date": "2026-10-10",
+  "scope": [
+    "worker.py",
+    "results.py",
+    "queues.py",
+    "server.py",
+    "pro_runtime.py",
+    "static/workbench.js",
+    "static/evaluations.js",
+    "static/library.js"
+  ],
+  "baseline": ".local/webui/pro-20261010/source-before",
+  "method": "Source diff review, actual isolated browser/API tests, actual isolated Git command reproduction. No production service changes, paid calls, downloads, or Docker execution.",
+  "findings": [
+    {
+      "id": "UI-R1",
+      "severity": "P1",
+      "status": "fixed_and_browser_retested",
+      "path": "local_setup/webui/results.py",
+      "issue": "Pro and Verified records initially received a mixed resolution rate because _requires_dataset recognized only rebench prefixes.",
+      "evidence": "First real isolated /api/results response returned requires_dataset=false and 100% for 2 different benchmarks; root expanded the guard. Final browser test confirms mixed overview rate and comparison bars are suppressed."
+    },
+    {
+      "id": "EXEC-R2",
+      "severity": "P1",
+      "status": "closed_source_and_runtime_evidence_reviewed",
+      "path": "local_setup/webui/worker.py",
+      "issue": "When Pro wall-time expires during a container command, deadline clamps the host docker.exe wait, which check_docker_result turns into DockerHostError rather than TimeExceeded. This pauses the queue instead of the declared normal partial-patch automatic evaluation.",
+      "evidence": "WebDocker.execute calls stream_command(timeout=min(command_timeout,deadline_remaining)) then check_docker_result; stream_command kills the Windows docker.exe process and sets timed_out; DockerHostError is not in the completed whitelist. The command in the container is not explicitly stopped before capture.",
+      "required_fix": "Bound or stop the container command itself and distinguish task wall-time exhaustion from per-command infrastructure errors. Do not override billing-unknown protection when an API call times out.",
+      "resolution": "Commands now run inside a tracked setsid group with container timeout and a longer host grace period. After exit, active group members are stopped. capture_patch calls stop_action before reading Git. Worker translates container 124/137 at the total deadline into TimeExceeded; per-command timeouts and API errors still fail/pause. Unknown billing protections remain unchanged.",
+      "verification": "Read current worker.py/pro_runtime.py and the actual assertions in tests/pro_runtime_live_check.py, then inspected runtime-process-check.json. The Linux test proves timed command, normal background child, and host-timeout recovery groups stop before stable patch capture. End-to-end wall-time queue dispatch remains part of root integration testing, not rerun by this review."
+    },
+    {
+      "id": "EXEC-R3",
+      "severity": "P2",
+      "status": "closed_source_and_runtime_evidence_reviewed",
+      "path": "local_setup/webui/pro_runtime.py",
+      "issue": "Captured git diff --cached is against current HEAD rather than verified base_commit. An agent commit silently removes genuine changes from the replay patch.",
+      "evidence": "review-git-baseline-repro.json: actual isolated Git repo, current capture empty after committing a code fix, explicit baseline diff nonempty. Prompt forbids commits, but runtime does not enforce it.",
+      "required_fix": "Capture against the verified baseline commit or reject changed HEAD explicitly, preserving original stopping reason.",
+      "resolution": "Worker passes prepare_solver runtime head into capture_patch; git diff --cached explicitly compares the staged current tree to that verified baseline. Capture failures save and emit the original exit_status plus capture error before raising.",
+      "verification": "The real cached Linux container check commits a new file and leaves another untracked, then asserts both are present in the baseline-relative captured patch. It also confirms the test container was removed."
+    }
+  ],
+  "confirmed_boundaries": [
+    "Only Submitted or captured LimitsExceeded/TimeExceeded marks Pro solve stage completed; other captured exceptions remain failed and pause the queue.",
+    "Manual cancellation assigns cancelled outcome and state events cannot replace it; queue will not automatically evaluate it.",
+    "Queue evaluates only the current successful stage prediction at its expected run path and checks full prediction hash before dispatch.",
+    "Cleanup is scoped by exact run/container name; restart recovery pauses unfinished queues.",
+    "Frontend partial-patch summary retains original exit reason, and inline evaluation still requires fresh explicit acknowledgement with exact patch inspection."
+  ],
+  "validation_boundaries": {
+    "browser_check": "pro-browser-check.json",
+    "git_reproduction": "review-git-baseline-repro.json",
+    "real_model_calls": 0,
+    "downloads": 0,
+    "all_runtime_branches_exercised": false
+  },
+  "followup_review": {
+    "date": "2026-10-10",
+    "open_findings": 0,
+    "new_findings": [],
+    "evidence_read": [
+      "runtime-process-check.json",
+      "local_setup/webui/tests/pro_runtime_live_check.py"
+    ],
+    "source_sha256": {
+      "worker.py": "224f80c1a77209185752dbed7229daa49c049dec813bb756a005877c5024044e",
+      "pro_runtime.py": "c55544b8b44b7d77478f5d7f3dab43be6c84cc8fc6396a0942d1e0e7c4b2336a"
+    },
+    "executed_by_this_followup": "Read-only inspection; no test rerun, paid call, download, Docker operation, or production change."
+  }
+}

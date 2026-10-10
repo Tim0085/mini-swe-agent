@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "per-run consent resets and task draft survives reload",
+    "settings draft and independent key save",
+    "real offline run, reload and valid artifact manifest",
+    "second offline run and rapid switching always selects last task",
+    "network loss shows disconnected and retry retains request id",
+    "download permissions reset on new issue and keyboard tabs work",
+    "early evaluation failure shows only existing artifacts and correct source model",
+    "storage preview detects changed files; exact deletion only",
+    "responsive UI, contrast and focus targets",
+    "cancel pending exit keeps service and task alive",
+    "controlled restart reuses data and reloads new boot",
+    "idle exit really closes the isolated process"
+  ],
+  "modelCalls": 0,
+  "productionServiceTouched": false,
+  "pageErrors": [],
+  "passed": true
+}

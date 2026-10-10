@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-10",
+  "pytest_command": ".venv/Scripts/python.exe -m pytest local_setup/webui/tests/test_pro_harness.py -q",
+  "pytest_passed": 18,
+  "protocol_service": "local HTTP Docker API, actual grader subprocess and actual worker subprocess; no mocks",
+  "coverage": [
+    "official pinned assets bytes forwarded unchanged",
+    "success and valid unresolved",
+    "reward authoritative independently of verifier return code",
+    "empty patch",
+    "missing or changed image",
+    "wrong baseline HEAD",
+    "patch apply failure",
+    "missing reward or output",
+    "malformed output or reward",
+    "empty collected tests",
+    "container timeout",
+    "cleanup failure",
+    "worker state propagation and floating task timeouts"
+  ],
+  "live_linux_checks": [
+    "live-synthetic-preflight.json",
+    "runtime-process-check.json"
+  ],
+  "model_calls": 0,
+  "image_downloads": 0,
+  "files": {
+    "local_setup/webui/pro_runtime.py": "c55544b8b44b7d77478f5d7f3dab43be6c84cc8fc6396a0942d1e0e7c4b2336a",
+    "local_setup/webui/pro_harness.py": "bd867e559fdf5634cce9879777e331c5d4766d81f27a2764e54b9d50b0bd4163",
+    "local_setup/webui/tests/test_pro_harness.py": "28cf87bab10829821536797b50b41a9cf25d788f252cc65342bfbc5c5a5baeb3",
+    "local_setup/webui/tests/pro_live_preflight.py": "d7762139ead265117cd5e0e266780cb424a7f2b2b15b6ab7ed3db5296c445857",
+    "local_setup/webui/tests/pro_runtime_live_check.py": "9c92636fe63bf24f9f1ff81f0a009b7dec6ffbbb74f406863c30852ca8c8bff4"
+  }
+}

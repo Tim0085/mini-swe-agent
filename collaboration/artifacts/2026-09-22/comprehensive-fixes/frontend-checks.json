@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "history last page and first page retain business-disabled controls",
+    "batch edits discard delayed previews and changed snapshots cannot submit",
+    "experiment edits discard delayed authorization and submit rechecks its snapshot",
+    "old experiment reads and controls cannot replace the latest selected experiment",
+    "returning from experiment comparison restores an empty history picker",
+    "desktop and 390px layouts remain contained",
+    "unknown probe recovery requires confirmation and closes the old request without a model call"
+  ],
+  "errors": [],
+  "method": "Isolated service, diagnostic-only experiments, delayed original HTTP responses; no model or external download requests."
+}

@@ -1,0 +1,252 @@
+{
+  "repository": "https://github.com/SWE-rebench/SWE-bench-fork",
+  "revision": "e4907b7a90eafaa1f0a6428fd04fe31cdd8b4284",
+  "archive_sha256": "ad249f4cb19db854ce0cb478227db3a66c0ffd3383693086d7954df7d6f7d5f9",
+  "license": "MIT",
+  "files": {
+    "LICENSE": {
+      "upstream_sha256": "2bd2e08df7147f67a69b42c10efae09bd4bf119df397371036187d5dd1b02f57",
+      "sha256": "2bd2e08df7147f67a69b42c10efae09bd4bf119df397371036187d5dd1b02f57"
+    },
+    "swebench/harness/__init__.py": {
+      "upstream_sha256": "6da23bf2681c43d063950f670923484df1c13631e444d9e3e7e8d20445165545",
+      "sha256": "beca05ca7f8022efc20f15ff389475b1abd9db2ad820420612cb99968eac24b9"
+    },
+    "swebench/harness/constants/__init__.py": {
+      "upstream_sha256": "f32f42e25abb6c8ad8f41beaffa48dd0ebf2603184b3914606ff65bc59c3e6db",
+      "sha256": "f32f42e25abb6c8ad8f41beaffa48dd0ebf2603184b3914606ff65bc59c3e6db"
+    },
+    "swebench/harness/constants/c.py": {
+      "upstream_sha256": "def5f825cc2c7332b645ff7c5022bf23ac508896656386444048f9ec9a40fb68",
+      "sha256": "def5f825cc2c7332b645ff7c5022bf23ac508896656386444048f9ec9a40fb68"
+    },
+    "swebench/harness/constants/go.py": {
+      "upstream_sha256": "fe81b00a47fd44f31ee3e3acd317fca49523ef96364ec6fb7c9d2832a2fc5305",
+      "sha256": "fe81b00a47fd44f31ee3e3acd317fca49523ef96364ec6fb7c9d2832a2fc5305"
+    },
+    "swebench/harness/constants/java.py": {
+      "upstream_sha256": "cc383527ad1d93ccf316ac74e8d6742552fd03bfdbad562eb8e2e810f0df0e0e",
+      "sha256": "cc383527ad1d93ccf316ac74e8d6742552fd03bfdbad562eb8e2e810f0df0e0e"
+    },
+    "swebench/harness/constants/javascript.py": {
+      "upstream_sha256": "d8c68d79e1e01854ce8cc70c45df88cd1153cf2f213949131553bf14ca9886f5",
+      "sha256": "d8c68d79e1e01854ce8cc70c45df88cd1153cf2f213949131553bf14ca9886f5"
+    },
+    "swebench/harness/constants/php.py": {
+      "upstream_sha256": "2f65236173c3396c67108eca51c4e729bfd1134be009f9057e60d8f038dda74a",
+      "sha256": "2f65236173c3396c67108eca51c4e729bfd1134be009f9057e60d8f038dda74a"
+    },
+    "swebench/harness/constants/python.py": {
+      "upstream_sha256": "5ffc3eb97774955b9cfe8491bb5c9608ec108bf9fdfbb3354de85cf0df9ced4c",
+      "sha256": "5ffc3eb97774955b9cfe8491bb5c9608ec108bf9fdfbb3354de85cf0df9ced4c"
+    },
+    "swebench/harness/constants/ruby.py": {
+      "upstream_sha256": "3d5d884c6c585a7e3cd6f85177eeee360b9541b35d6f5eb6f1330489589311d2",
+      "sha256": "3d5d884c6c585a7e3cd6f85177eeee360b9541b35d6f5eb6f1330489589311d2"
+    },
+    "swebench/harness/constants/rust.py": {
+      "upstream_sha256": "d2575afec9115c74a9e9100d75f340efa25b2770b58b79435dfc37582fe5b1ac",
+      "sha256": "d2575afec9115c74a9e9100d75f340efa25b2770b58b79435dfc37582fe5b1ac"
+    },
+    "swebench/harness/docker_build.py": {
+      "upstream_sha256": "adb3309099d8eac0c2666620f86000001481343373637f3eaa9bfe39e2b020ea",
+      "sha256": "61856a3ca89351307bc49b9b6791bd9fb4df3a2e2c3064b91aa9ac542e9280d4"
+    },
+    "swebench/harness/docker_utils.py": {
+      "upstream_sha256": "0dd4964ee6bea8e4f93da460ff96d33a7885fcc798d1980ac858721d77ab8016",
+      "sha256": "c32eda44bdb7c6c57d5d083a078a981f18a33f7952bb4eab91d006c59cdce4f9"
+    },
+    "swebench/harness/dockerfiles/__init__.py": {
+      "upstream_sha256": "3090a526bf1485a7b9024b1859a36f0b610c3dc77475cf417d889f8e8b993b45",
+      "sha256": "3090a526bf1485a7b9024b1859a36f0b610c3dc77475cf417d889f8e8b993b45"
+    },
+    "swebench/harness/dockerfiles/c.py": {
+      "upstream_sha256": "cebdb7009a3bc8eadfb2b1cf2c778ef696c5bdce82c17eef1cd417bef1dfe7c3",
+      "sha256": "cebdb7009a3bc8eadfb2b1cf2c778ef696c5bdce82c17eef1cd417bef1dfe7c3"
+    },
+    "swebench/harness/dockerfiles/go.py": {
+      "upstream_sha256": "4176e96c29625122a38dad3293463e493b764de3f0ef1f2aba60b906aa6eacd1",
+      "sha256": "4176e96c29625122a38dad3293463e493b764de3f0ef1f2aba60b906aa6eacd1"
+    },
+    "swebench/harness/dockerfiles/java.py": {
+      "upstream_sha256": "64e484860a66d65f0cbaa0ee7baa7d817d3e39b26d06fa8bb840c4844e598e6e",
+      "sha256": "64e484860a66d65f0cbaa0ee7baa7d817d3e39b26d06fa8bb840c4844e598e6e"
+    },
+    "swebench/harness/dockerfiles/javascript.py": {
+      "upstream_sha256": "310ccf1ad9b42e8100ca1980295b9f61a704f4fbeec131c257c691504a64d8cf",
+      "sha256": "310ccf1ad9b42e8100ca1980295b9f61a704f4fbeec131c257c691504a64d8cf"
+    },
+    "swebench/harness/dockerfiles/php.py": {
+      "upstream_sha256": "c3758d82c92263bee08d7b94597459528c6f159732e9a785b88480b4f8df91cb",
+      "sha256": "c3758d82c92263bee08d7b94597459528c6f159732e9a785b88480b4f8df91cb"
+    },
+    "swebench/harness/dockerfiles/python.py": {
+      "upstream_sha256": "375f0829e363c6bee1fe529b06d6e10c0205953dfebe9a0cc424f13aa97351fb",
+      "sha256": "375f0829e363c6bee1fe529b06d6e10c0205953dfebe9a0cc424f13aa97351fb"
+    },
+    "swebench/harness/dockerfiles/ruby.py": {
+      "upstream_sha256": "4c54261e9e8ba57763c5157e9027aa2ae61f9ac12e00fef388d6f2b49c9c0bcf",
+      "sha256": "4c54261e9e8ba57763c5157e9027aa2ae61f9ac12e00fef388d6f2b49c9c0bcf"
+    },
+    "swebench/harness/dockerfiles/rust.py": {
+      "upstream_sha256": "d2302618f41dd24879f81f1992534de67eb8bd8e0b8806f96d9d52ac44bbc66e",
+      "sha256": "d2302618f41dd24879f81f1992534de67eb8bd8e0b8806f96d9d52ac44bbc66e"
+    },
+    "swebench/harness/eval.py": {
+      "upstream_sha256": "cf256e9047f621b4c4410bf295eeb9b25365309b3000152c140a5b77edbc471d",
+      "sha256": "acf0fdbfc35fd2b873b85c6a5dfc1055fed780a04d58d4a879b4b0c2153eeaee"
+    },
+    "swebench/harness/grading.py": {
+      "upstream_sha256": "21f39d68f44534dc4819f49bef308de22dbffac61f839a3ead55b2476a4f1dea",
+      "sha256": "21f39d68f44534dc4819f49bef308de22dbffac61f839a3ead55b2476a4f1dea"
+    },
+    "swebench/harness/log_parsers/__init__.py": {
+      "upstream_sha256": "d04bc7bc1b7b598cde0365a38c1f1c5ea8f892bd1788d2e623678e320f84c012",
+      "sha256": "d04bc7bc1b7b598cde0365a38c1f1c5ea8f892bd1788d2e623678e320f84c012"
+    },
+    "swebench/harness/log_parsers/c.py": {
+      "upstream_sha256": "dba536f6a4ff44852655cad2807cc2e1a41efb456631eb110d4f616096ff22f8",
+      "sha256": "dba536f6a4ff44852655cad2807cc2e1a41efb456631eb110d4f616096ff22f8"
+    },
+    "swebench/harness/log_parsers/go.py": {
+      "upstream_sha256": "8bdf7669d1d5f4b9e2d2fe76d4a361a5930b459e6579e0ca0ee09ae50843aca2",
+      "sha256": "8bdf7669d1d5f4b9e2d2fe76d4a361a5930b459e6579e0ca0ee09ae50843aca2"
+    },
+    "swebench/harness/log_parsers/java.py": {
+      "upstream_sha256": "646b88401fc3354b2d835378a919a387fdaa9d216997b47299d735186d0b651a",
+      "sha256": "646b88401fc3354b2d835378a919a387fdaa9d216997b47299d735186d0b651a"
+    },
+    "swebench/harness/log_parsers/javascript.py": {
+      "upstream_sha256": "60ec6859cdd297d195a3f793e223eb619e2fe5620278d2c3bbe0e6f8e3e2ca2f",
+      "sha256": "60ec6859cdd297d195a3f793e223eb619e2fe5620278d2c3bbe0e6f8e3e2ca2f"
+    },
+    "swebench/harness/log_parsers/php.py": {
+      "upstream_sha256": "29d22d2055ecfc47244849a0daf1991298bc5e9244f1278d1aeb212ec23c2423",
+      "sha256": "29d22d2055ecfc47244849a0daf1991298bc5e9244f1278d1aeb212ec23c2423"
+    },
+    "swebench/harness/log_parsers/python.py": {
+      "upstream_sha256": "53f55599d7ccb3c2ef7036e981ec2373656cced485572c1d2ec7f81f6ef2194e",
+      "sha256": "53f55599d7ccb3c2ef7036e981ec2373656cced485572c1d2ec7f81f6ef2194e"
+    },
+    "swebench/harness/log_parsers/ruby.py": {
+      "upstream_sha256": "430d29ed360c8ad93ef360739360e9f389405bfe8c0789a853a1fcdcfa2c3872",
+      "sha256": "430d29ed360c8ad93ef360739360e9f389405bfe8c0789a853a1fcdcfa2c3872"
+    },
+    "swebench/harness/log_parsers/rust.py": {
+      "upstream_sha256": "cbf2c28d9a10bd50aadb1de6c7fa01f55f2939d00860609478e8f1eff5feebcf",
+      "sha256": "cbf2c28d9a10bd50aadb1de6c7fa01f55f2939d00860609478e8f1eff5feebcf"
+    },
+    "swebench/harness/reporting.py": {
+      "upstream_sha256": "4f0ef0d475164f69f3ce37dacc982df5d704eb0b1bb4868fb411ce8ae1e0ab7c",
+      "sha256": "4f0ef0d475164f69f3ce37dacc982df5d704eb0b1bb4868fb411ce8ae1e0ab7c"
+    },
+    "swebench/harness/test_spec/__init__.py": {
+      "upstream_sha256": "19fe677f658b84984b086a11d037e54932865e72cb579b3196f74ca21218337e",
+      "sha256": "19fe677f658b84984b086a11d037e54932865e72cb579b3196f74ca21218337e"
+    },
+    "swebench/harness/test_spec/create_scripts.py": {
+      "upstream_sha256": "de1825810e76a6ce0ec8f5c1b113dddaf62c24bbc8631e78fd57852e0e778d36",
+      "sha256": "de1825810e76a6ce0ec8f5c1b113dddaf62c24bbc8631e78fd57852e0e778d36"
+    },
+    "swebench/harness/test_spec/javascript.py": {
+      "upstream_sha256": "82d49de630969d85cacb0b9272f3d7d6843f5ce301f904af309e90f8c214e9bc",
+      "sha256": "82d49de630969d85cacb0b9272f3d7d6843f5ce301f904af309e90f8c214e9bc"
+    },
+    "swebench/harness/test_spec/python.py": {
+      "upstream_sha256": "7a48ee96deb4be2ca8aca365ee2fadcc4af60bc1979673ac9262c060763e589c",
+      "sha256": "7a48ee96deb4be2ca8aca365ee2fadcc4af60bc1979673ac9262c060763e589c"
+    },
+    "swebench/harness/test_spec/test_spec.py": {
+      "upstream_sha256": "e1ec061f78f8c8fb7ab23cbc66413590eb3d0ddc7a2da2fb1f75bf9abcea2d62",
+      "sha256": "e1ec061f78f8c8fb7ab23cbc66413590eb3d0ddc7a2da2fb1f75bf9abcea2d62"
+    },
+    "swebench/harness/test_spec/utils.py": {
+      "upstream_sha256": "bd70cfa6ed883b8d89b5f3e80eeb6078e63c5e4a197122c2eb2b1963a8da09bd",
+      "sha256": "bd70cfa6ed883b8d89b5f3e80eeb6078e63c5e4a197122c2eb2b1963a8da09bd"
+    },
+    "swebench/harness/utils.py": {
+      "upstream_sha256": "60f873ee054587ab5dabd9e44c7edafb103a825c81f01f639356e2561db754c0",
+      "sha256": "60f873ee054587ab5dabd9e44c7edafb103a825c81f01f639356e2561db754c0"
+    },
+    "swebench/__init__.py": {
+      "upstream_sha256": null,
+      "sha256": "e737a2b9024dea487aaee2eef2b511dac7232f0f8b5ee9d09f4570807d918631"
+    }
+  },
+  "changes": {
+    "swebench/__init__.py": "Minimal version-only initializer; omit unused collector and cloud imports.",
+    "swebench/harness/__init__.py": "Import modules explicitly; omit unused cloud/CLI entrypoints.",
+    "swebench/harness/eval.py": "UTF-8/LF for patch.diff and eval.sh on Windows.",
+    "swebench/harness/docker_build.py": "Require existing remote image; never build or pull during evaluation.",
+    "swebench/harness/docker_utils.py": "Container-only kill; never kill Docker VM PID on the host. Bounded timeout reader cleanup."
+  },
+  "log_parsers": [
+    "Automattic/wp-calypso",
+    "apache/druid",
+    "apache/lucene",
+    "astral-sh/ruff",
+    "astropy/astropy",
+    "axios/axios",
+    "babel/babel",
+    "briannesbitt/carbon",
+    "burntsushi/ripgrep",
+    "caddyserver/caddy",
+    "chartjs/Chart.js",
+    "diegomura/react-pdf",
+    "django/django",
+    "facebook/docusaurus",
+    "faker-ruby/faker",
+    "fastlane/fastlane",
+    "fluent/fluentd",
+    "fmtlib/fmt",
+    "gin-gonic/gin",
+    "gohugoio/hugo",
+    "google/gson",
+    "hashicorp/terraform",
+    "immutable-js/immutable-js",
+    "javaparser/javaparser",
+    "jekyll/jekyll",
+    "jordansissel/fpm",
+    "jqlang/jq",
+    "laravel/framework",
+    "markedjs/marked",
+    "marshmallow-code/marshmallow",
+    "matplotlib/matplotlib",
+    "micropython/micropython",
+    "mrdoob/three.js",
+    "mwaskom/seaborn",
+    "nlohmann/json",
+    "nushell/nushell",
+    "pallets/flask",
+    "parse_log_pytest",
+    "parse_log_pytest_options",
+    "parse_log_pytest_v2",
+    "php-cs-fixer/php-cs-fixer",
+    "phpoffice/phpspreadsheet",
+    "preactjs/preact",
+    "processing/p5.js",
+    "projectlombok/lombok",
+    "prometheus/prometheus",
+    "psf/requests",
+    "pvlib/pvlib-python",
+    "pydata/xarray",
+    "pydicom/pydicom",
+    "pylint-dev/astroid",
+    "pylint-dev/pylint",
+    "pytest-dev/pytest",
+    "pyvista/pyvista",
+    "reactivex/rxjava",
+    "redis/redis",
+    "rubocop/rubocop",
+    "scikit-learn/scikit-learn",
+    "sharkdp/bat",
+    "sphinx-doc/sphinx",
+    "sqlfluff/sqlfluff",
+    "sympy/sympy",
+    "tokio-rs/axum",
+    "tokio-rs/tokio",
+    "uutils/coreutils",
+    "valkey-io/valkey",
+    "vuejs/core"
+  ]
+}

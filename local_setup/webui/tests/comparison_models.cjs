@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+const {comparisonModelName,comparisonFamilies}=require('../static/comparison-models.js');
+const row=(id,model,profile,automatic)=>({group_id:id,model,profile_name:profile,conditions_known:true,conditions:{auto_approve:automatic},summary:{evaluated:1}});
+const groups=[row('manual','openai/gpt-5.5','原配置',false),row('auto','openai/gpt-5.5','原配置',true),row('older','gpt-5.5','旧别名',false),row('other','openai/grok-4.6','原配置',false)];
+groups[2].conditions_known=false;
+const before=JSON.stringify(groups),families=comparisonFamilies(groups,['auto','other']);
+assert.equal(families.length,2);assert.equal(families[0].name,'gpt-5.5');assert.equal(families[0].variants.length,3);assert.equal(families[0].defaultId,'auto');
+assert.equal(families[1].name,'grok-4.6');assert.equal(JSON.stringify(groups),before);
+assert.equal(comparisonModelName({model:'openai/vendor/model-v1',profile_name:'原配置'}),'vendor/model-v1');
+assert.equal(comparisonFamilies([row('a','openai/gpt-5.5','原配置',true),row('b','openai/gpt-6-astra','原配置',true)]).length,2);
+assert.deepEqual(comparisonFamilies([]),[]);
+console.log('PASS model identity, alias deduplication, selected condition, distinct models, history preservation');

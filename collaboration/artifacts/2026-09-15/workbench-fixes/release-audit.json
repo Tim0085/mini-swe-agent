@@ -1,0 +1,28 @@
+{
+  "protected_files_checked": 11,
+  "protected_files_changed": [],
+  "existing_packages_changed": {},
+  "added_packages": {
+    "fastapi": "0.141.1",
+    "iniconfig": "2.3.0",
+    "pluggy": "1.6.0",
+    "pytest": "9.1.1",
+    "starlette": "1.6.0",
+    "uvicorn": "0.53.0"
+  },
+  "added_package_bytes": {
+    "fastapi": 1516414,
+    "iniconfig": 36985,
+    "pluggy": 137164,
+    "pytest": 3218752,
+    "starlette": 622474,
+    "uvicorn": 782036
+  },
+  "total_added_package_bytes": 6313825,
+  "historical_result": {
+    "completed_instances": 1,
+    "resolved_instances": 1,
+    "unresolved_instances": 0,
+    "error_instances": 0
+  }
+}

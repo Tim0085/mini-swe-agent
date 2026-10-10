@@ -1,0 +1,19 @@
+{
+  "distinct_legacy_patches": 1,
+  "recommended_file": "django__django-10097-20260914-224547.predictions.jsonl",
+  "duplicate_copies": 2,
+  "excluded": [
+    {
+      "name": "cli-smoke.traj.json",
+      "reason": "这是一份检查记录，没有代码补丁。"
+    },
+    {
+      "name": "last_mini_run.traj.json",
+      "reason": "任务没有成功提交补丁。"
+    }
+  ],
+  "matched_conversation_messages": 28,
+  "conversation_truncated": false,
+  "files_modified": false,
+  "paid_model_calls": 0
+}

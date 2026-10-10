@@ -1,0 +1,164 @@
+{
+  "checked_at_date": "2026-10-10",
+  "scope": "Official public SWE-bench Pro V2 data, instructions, and image metadata. No model calls or image-layer downloads.",
+  "hf": {
+    "dataset": "ScaleAI/SWE-bench_Pro",
+    "revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+    "config": "default",
+    "split": "test",
+    "source_path": "data/default/test-00000-of-00001.parquet",
+    "source_bytes": 6511689,
+    "sha256": "1067f72c1f43bbc578276888625db3b836cebb535546c9eaf824c5d5dd104a7f",
+    "rows": 642,
+    "version": "2.0.0",
+    "columns": [
+      "repo",
+      "instance_id",
+      "base_commit",
+      "patch",
+      "test_patch",
+      "problem_statement",
+      "requirements",
+      "interface",
+      "repo_language",
+      "fail_to_pass",
+      "pass_to_pass",
+      "issue_specificity",
+      "issue_categories",
+      "before_repo_set_cmd",
+      "selected_test_files_to_run",
+      "dockerhub_tag",
+      "docker_image",
+      "hard",
+      "version"
+    ]
+  },
+  "github": {
+    "repository": "scaleapi/SWE-bench_Pro-os",
+    "revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "task_root": "v2/tasks",
+    "sha256sums_sha256": "9d84f8507c89241d42d8b3ef911600a1ec75dbbb32687ce9b45b93318502c0bd",
+    "task_ids_match_hf": true,
+    "instruction_hf_fields_verified": 642,
+    "instruction_byte_identical_by_template": 581,
+    "remaining_read_and_sha_verified": 61,
+    "instruction_fields_compared": [
+      "problem_statement",
+      "requirements",
+      "interface"
+    ],
+    "all_instruction_workspace": "/app",
+    "hard51_ids_match_hf": true
+  },
+  "validation": {
+    "unique_instance_ids": 642,
+    "id_length_range": [
+      65,
+      120
+    ],
+    "safe_pattern": "instance_[A-Za-z0-9_.-]+__[A-Za-z0-9_.-]+-[0-9a-f]{40}(?:-v(?:[0-9a-f]{40}|nan))?",
+    "safe_pattern_all_match": true,
+    "base_commit_all_40_hex": true,
+    "all_three_prompt_fields_nonempty": true,
+    "image_ref_matches_id": true,
+    "strict_json_list_columns": {
+      "fail_to_pass": true,
+      "pass_to_pass": true,
+      "selected_test_files_to_run": true,
+      "issue_specificity": true,
+      "issue_categories": true
+    }
+  },
+  "catalog_allowlist": [
+    "instance_id",
+    "repo",
+    "base_commit",
+    "problem_statement",
+    "requirements",
+    "interface",
+    "repo_language",
+    "issue_specificity",
+    "issue_categories",
+    "docker_image",
+    "hard",
+    "version"
+  ],
+  "catalog_exclude": [
+    "patch",
+    "test_patch",
+    "fail_to_pass",
+    "pass_to_pass",
+    "before_repo_set_cmd",
+    "selected_test_files_to_run",
+    "dockerhub_tag"
+  ],
+  "variants": {
+    "default_v2": 642,
+    "hard_v2_subset": 51,
+    "legacy_v1": 731,
+    "recommendation": "Integrate default V2 under a fixed snapshot; HARD can be a subset/filter, avoid counting it as independent data or mixing V1 scores."
+  },
+  "image_candidates": [
+    {
+      "instance_id": "instance_internetarchive__openlibrary-e8084193a895d8ee81200f49093389a3887479ce-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "repo": "internetarchive/openlibrary",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_internetarchive__openlibrary-e8084193a895d8ee81200f49093389a3887479ce-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "manifest_digest": "sha256:ed6004c1632836bd1ed7d02d0eb9422ab364ecda14a6eec082cbbaa70217a040",
+      "amd64_digest": "sha256:863d13a0c17b2d6b3366fa8abb1d72b2c377725efeb0ecc3193e2edcc9221cca",
+      "layer_count": 21,
+      "compressed_bytes": 858629742,
+      "config_digest": "sha256:2f094b659345b6e19c6418a031ebe70c6c81cf252592ad92148cb5e58f72b39a",
+      "selection_basis": "public problem statement/requirements length only, no gold or hidden test content",
+      "architecture": "amd64",
+      "os": "linux",
+      "working_dir": "/app",
+      "image_user": null
+    },
+    {
+      "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+      "repo": "qutebrowser/qutebrowser",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+      "manifest_digest": "sha256:d664721bb9fc5d0a9019f9ef46f14e567c46ed8e53371b0f0c7ab26db2e779d8",
+      "amd64_digest": "sha256:ca6ba92316b90aa0227bc18c97fb0b458d415f216416fe3c3b0ad526f41cc017",
+      "layer_count": 18,
+      "compressed_bytes": 638246354,
+      "config_digest": "sha256:f08c83aa3061c840d63adf0d005f06f7f438491db183c8c831dafac977d5feb4",
+      "selection_basis": "public problem statement/requirements length only, no gold or hidden test content",
+      "architecture": "amd64",
+      "os": "linux",
+      "working_dir": "/app",
+      "image_user": null
+    },
+    {
+      "instance_id": "instance_ansible__ansible-39bd8b99ec8c6624207bf3556ac7f9626dad9173-v1055803c3a812189a1133297f7f5468579283f86",
+      "repo": "ansible/ansible",
+      "image": "ghcr.io/scaleapi/swe-bench_pro-v2:instance_ansible__ansible-39bd8b99ec8c6624207bf3556ac7f9626dad9173-v1055803c3a812189a1133297f7f5468579283f86",
+      "manifest_digest": "sha256:147e021c437e5762b249409a5995c92b8b156d0b6c00fd10078962a47536f202",
+      "amd64_digest": "sha256:56cacdfb6e94d6d122947fe1576368aa055d9f1bf7d4064ce74b39a8b78b1eff",
+      "layer_count": 18,
+      "compressed_bytes": 689270531,
+      "config_digest": "sha256:87bd0bbcac4f67212989ec374e45d7fb6e977ce58f4e70ce2aa5b3faf733eaac",
+      "selection_basis": "public problem statement/requirements length only, no gold or hidden test content",
+      "architecture": "amd64",
+      "os": "linux",
+      "working_dir": "/app",
+      "image_user": null
+    }
+  ],
+  "license": {
+    "harness_tooling": "MIT",
+    "task_content": "Upstream repository licenses; no universal MIT claim for task code/tests/patches."
+  },
+  "implementation_notes": [
+    "Read only public catalog columns; keep official verifier input separate from model input.",
+    "Use docker_image for V2, never reconstruct from legacy dockerhub_tag.",
+    "Preserve long, case-sensitive instance_id including optional environment suffix and -vnan; use bounded/hash-derived local folder/container names on Windows.",
+    "Use a pristine container to apply the model patch and run the unchanged per-task V2 verifier. Old root swe_bench_pro_eval.py is V1 only.",
+    "Agent sandbox no-network; model API remains host side. Official verifier may require public network.",
+    "Use frozen benchmark revision, image digest and task-file hashes in every solve/evaluation record; keep dataset-specific metrics separate."
+  ],
+  "sources": [
+    "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/blob/2d52cb3df914a3fcf80c7f66738b3a88ae37fc50/README.md",
+    "https://github.com/scaleapi/SWE-bench_Pro-os/blob/66f92766bba642462d4bbe5479e83f91f9211862/v2/README.md"
+  ]
+}

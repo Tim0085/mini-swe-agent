@@ -1,0 +1,12 @@
+{
+  "version": "1.5.0",
+  "code_version": "f0086c15b8d2b1bb",
+  "update_available": true,
+  "active_run": null,
+  "queue_id": null,
+  "cleanup_pending": [],
+  "source_version": "caa926a21f62d51d",
+  "restart_authorization_received": false,
+  "superseded_by": "production-restart-check.json",
+  "note": "Pre-authorization observation retained; user later approved the verified restart."
+}

@@ -1,0 +1,14 @@
+{
+  "review": "independent-data-and-static-frontend",
+  "source_hash_verified": true,
+  "public_manifest_matches_all_pinned_rows": 642,
+  "valid_old_cache_without_shared_projection": 200,
+  "corrupt_cache_response_status": 400,
+  "corrupt_cache_response": {
+    "detail": "Pro 缓存资料无效或版本不匹配，请允许下载后重新缓存题目。"
+  },
+  "read_only_refusal_preserves_corrupt_file": true,
+  "external_requests": 0,
+  "model_calls": 0,
+  "downloads": 0
+}

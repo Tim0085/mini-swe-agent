@@ -1,0 +1,35 @@
+{
+  "run_id": "20260915-232214-29a4d228",
+  "status": "completed",
+  "evaluation": {
+    "category": "passed",
+    "verdict": "通过",
+    "resolved": 1,
+    "completed": 1,
+    "unresolved": 0,
+    "errors": 0,
+    "infrastructure": 0,
+    "ambiguous": 0
+  },
+  "observed_phases": [
+    "检查题目、补丁与 Docker 环境；本次不调用模型",
+    "正在运行测试；暂无新输出时请等待，可随时停止任务",
+    "创建评测容器",
+    "应用补丁",
+    "准备测试脚本",
+    "汇总测试结果",
+    "正在确认进程结束并清理所属资源"
+  ],
+  "progress_available": true,
+  "cleanup_pending": [],
+  "paid_model_calls": 0,
+  "download_allowed": false,
+  "production_service_used": false,
+  "recorded_stages": [
+    "准备评测容器",
+    "创建评测容器",
+    "应用补丁",
+    "准备测试脚本",
+    "汇总测试结果"
+  ]
+}

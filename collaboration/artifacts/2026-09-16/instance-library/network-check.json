@@ -1,0 +1,12 @@
+{
+  "catalog_count": 500,
+  "catalog_bytes": 1098152,
+  "reference_patch_excluded": true,
+  "new_instance": "astropy__astropy-12907",
+  "new_instance_bytes": 7330,
+  "image_downloads": 0,
+  "model_calls": 0,
+  "sync_run": "20260916-002606-2789e4b9",
+  "cache_run": "20260916-002618-7723f37a",
+  "isolated": true
+}

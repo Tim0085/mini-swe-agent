@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-10",
+  "reviewer": "independent_trial_review",
+  "reviewed_raw_sources": [
+    "current queue and all three stage meta/request records",
+    "current solve prediction and exact evaluator input",
+    "official config, output.json, reward.txt, report.json, test_output.txt",
+    "previous Luna runtime base commit and image ID",
+    "432-file pre-run SHA256 baseline",
+    "read-only Docker container inventory"
+  ],
+  "open_findings": 0,
+  "passed": true,
+  "queue_id": "20261010-082936-143fe92b",
+  "solve_id": "20261010-082942-59450318",
+  "evaluation_id": "20261010-083025-9e407c30",
+  "model": "openai/gpt-5.5",
+  "protocol": "responses",
+  "official_reward": 1,
+  "repair_tests": {
+    "passed": 1,
+    "total": 1
+  },
+  "regression_tests": {
+    "passed": 9,
+    "total": 9
+  },
+  "calls": 9,
+  "estimated_cost_usd": 0.214217,
+  "budget_usd": 3,
+  "pricing_source": "local_litellm_catalog",
+  "cost_recalculated_from_usage": true,
+  "same_initial_code_and_cached_image_as_previous_trial": true,
+  "patch_link_and_hash_verified": true,
+  "verifier_reset_model_test_changes_before_official_tests": true,
+  "original_files_unchanged": 432,
+  "remaining_own_containers": [],
+  "no_model_calls_or_new_tasks_by_reviewer": true,
+  "new_image_downloads_authorized": false,
+  "source_version": "ea85e026be468168",
+  "limitations": [
+    "Single selected cached case does not represent a dataset-wide score.",
+    "Costs use frozen local catalog estimates, not the service billing statement."
+  ]
+}

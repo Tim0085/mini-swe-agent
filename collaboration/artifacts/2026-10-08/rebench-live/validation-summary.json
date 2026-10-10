@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-08",
+  "benchmark": "SWE-rebench classic",
+  "dataset": "rebench-34d5a588",
+  "instance_id": "pallets__click-3239",
+  "real_trial": {
+    "verified": true,
+    "evidence_checks": 45,
+    "resolved": true,
+    "tests": {
+      "repair": {
+        "passed": 4,
+        "failed": 0,
+        "total": 4
+      },
+      "regression": {
+        "passed": 694,
+        "failed": 0,
+        "total": 694
+      }
+    },
+    "model": "openai/gpt-5.5",
+    "calls": 11,
+    "estimated_cost_usd": 0.232104,
+    "budget_usd": 3,
+    "paid_solve_attempts": 1,
+    "evaluation_attempts": 2,
+    "same_patch_recovered": true
+  },
+  "regression": {
+    "harness_tests_passed": 8,
+    "full_suite": "passed",
+    "passed": 137,
+    "warnings": 3,
+    "seconds": 177.16
+  },
+  "runtime_image_downloads": 1,
+  "image_digest_verified": true,
+  "additional_images_pulled": 0,
+  "actual_added_disk_bytes": "unknown",
+  "new_environments": 0,
+  "installed_or_upgraded_packages": 0,
+  "protected_files": {
+    "count": 361,
+    "unchanged": 361,
+    "changed": []
+  },
+  "remaining_owned_containers": [],
+  "production_restarted_during_trial": false,
+  "source_versions": {
+    "solve_start": "f0086c15b8d2b1bb",
+    "running_backend": "f0086c15b8d2b1bb",
+    "current_worker": "a62cfe27a39303f8",
+    "backend_update_available": true
+  },
+  "limitation": "One selected case is not a dataset-wide benchmark score; estimated price is not a provider invoice."
+}

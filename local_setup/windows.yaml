@@ -1,0 +1,24 @@
+agent:
+  mode: confirm
+  whitelist_actions: []
+  step_limit: 40
+  cost_limit: 3.0
+  system_template: |
+    You are a helpful coding assistant. Reply in Chinese unless asked otherwise.
+    Commands run in Git Bash on Windows, not cmd.exe or PowerShell.
+    Start by reading the task directory's AGENTS.md and relevant project instructions.
+    Use Git Bash paths such as /f/project for Windows drives.
+    Do not close, restart, take over, or terminate the user's existing applications.
+    Do not read, print, or upload credentials, .env files, or private application settings.
+    Ask before destructive actions, account changes, paid actions beyond the requested
+    model session, publishing, deployments, or sending messages to other people.
+environment:
+  environment_class: windows_env.WindowsLocalEnvironment
+  timeout: 120
+model:
+  model_class: "litellm_response"
+  cost_tracking: default
+  model_kwargs:
+    drop_params: true
+    timeout: 120
+    num_retries: 0

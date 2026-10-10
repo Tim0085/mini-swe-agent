@@ -1,0 +1,53 @@
+{
+  "kind": "synthetic-official-verifier-preflight-not-benchmark-score",
+  "official_revision": "66f92766bba642462d4bbe5479e83f91f9211862",
+  "image_id": "sha256:e082963099ed7d5a5f75a0be46e338be36faae33b2cba5289a9ddbd505997f1f",
+  "official_test_sh_sha256": "b6f26eecd87c1696a3702ee115d31f9d42f4704cf2116419cd879f66b60976d0",
+  "solver_network": "none",
+  "fresh_verifier": true,
+  "captured_untracked_patch": true,
+  "cases": [
+    {
+      "fixture": "negative",
+      "resolved": false,
+      "tests_status": {
+        "FAIL_TO_PASS": {
+          "success": [],
+          "failure": [
+            "repair"
+          ]
+        },
+        "PASS_TO_PASS": {
+          "success": [
+            "regression"
+          ],
+          "failure": []
+        }
+      },
+      "report": "F:\\mini-swe-agent\\.local\\webui\\pro-live-preflight\\55818db603144695963a1842520070c9\\negative\\logs\\run_evaluation\\pro\\3fdc7f119c9e6a1f\\report.json"
+    },
+    {
+      "fixture": "positive",
+      "resolved": true,
+      "tests_status": {
+        "FAIL_TO_PASS": {
+          "success": [
+            "repair"
+          ],
+          "failure": []
+        },
+        "PASS_TO_PASS": {
+          "success": [
+            "regression"
+          ],
+          "failure": []
+        }
+      },
+      "report": "F:\\mini-swe-agent\\.local\\webui\\pro-live-preflight\\55818db603144695963a1842520070c9\\positive\\logs\\run_evaluation\\pro\\3fdc7f119c9e6a1f\\report.json"
+    }
+  ],
+  "original_images_and_containers_preserved": true,
+  "containers_removed": true,
+  "model_calls": 0,
+  "downloaded_images": 0
+}

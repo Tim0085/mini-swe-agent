@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "official directory search, cross-page selection and cache-only queue",
+    "cancel directory sync preserves previous complete catalog",
+    "batch limit, preview choices and single-slot execution",
+    "pause finishes current solve and auto-evaluation before next item",
+    "settings change requires explicit confirmation before resume",
+    "real service restart retains paused batch and never reruns interrupted work",
+    "retry uses new child identity and completed history remains available",
+    "narrow screen, keyboard navigation and no script errors"
+  ],
+  "page_errors": 0,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "production_touched": false
+}

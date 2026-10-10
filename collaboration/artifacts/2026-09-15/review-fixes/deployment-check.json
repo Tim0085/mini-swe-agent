@@ -1,0 +1,13 @@
+{
+  "version": "1.2.0",
+  "code_version": "27629a5de2988cf3",
+  "action": "started_stopped_service",
+  "config_valid": true,
+  "key_ready": true,
+  "recent_records": 12,
+  "paid_model_calls": 0,
+  "browser_passed": true,
+  "cache_restore_passed": true,
+  "historical_messages_displayed": 28,
+  "page_errors": 0
+}

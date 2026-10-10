@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "desktop": true,
+  "mobile": 390,
+  "matrix_drilldown": true,
+  "empty_selection": true,
+  "no_common_cases": true,
+  "real_test_counts": true,
+  "response_text": true,
+  "keyboard_tabs": true,
+  "errors": []
+}

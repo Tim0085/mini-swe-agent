@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "catalog_count": 860,
+  "single_case_cache": true,
+  "required_interfaces_visible": true,
+  "pinned_source_verified": true,
+  "no_answers_in_catalog": true,
+  "source_reads": 2,
+  "source_read_bytes": 9729850,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "production_state_modified": false,
+  "isolated_service_stopped": true
+}

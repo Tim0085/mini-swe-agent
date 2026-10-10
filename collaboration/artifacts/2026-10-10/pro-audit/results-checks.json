@@ -1,0 +1,45 @@
+{
+  "partial_failure_classification": {
+    "input_run_status": "failed",
+    "input_exit": "InternalServerError",
+    "output_status": "submitted",
+    "output_verdict": "部分补丁，待评测",
+    "summary": {
+      "instances": 1,
+      "evaluated": 0,
+      "resolved": 0,
+      "unresolved": 0,
+      "resolution_rate": null,
+      "denominator": 0,
+      "requires_dataset": false,
+      "denominator_kind": "valid_evaluations",
+      "unevaluated": 1,
+      "errors": 0,
+      "cancelled": 0,
+      "coverage_rate": 0.0,
+      "estimated_cost": null,
+      "cost_known": 0,
+      "cost_unknown": 1,
+      "mean_solve_seconds": 60.0,
+      "timed_solves": 1,
+      "mean_evaluation_seconds": null,
+      "timed_evaluations": 0,
+      "mean_preparation_seconds": null,
+      "timed_preparations": 0
+    },
+    "cost_known": false
+  },
+  "effective_budget_conditions": {
+    "actual_request_cost_limits": [
+      3,
+      0.2
+    ],
+    "displayed_cost_limits": [
+      3,
+      3
+    ],
+    "comparison_groups": 1
+  },
+  "model_calls": 0,
+  "production_writes": 0
+}

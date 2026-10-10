@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "original_failure_reproduced": false,
+  "cached_instance": "astropy__astropy-12907",
+  "correct_repository_initialization": "passed",
+  "deliberate_wrong_directory": "exit_128_logged",
+  "container_removed": true,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "events": [
+    [
+      "phase",
+      "初始化题目代码"
+    ],
+    [
+      "log",
+      "题目代码初始化：退出码 0\nHEAD is now at d16bfe05a Merge pull request #12900 from Cadair/custom_compound_model"
+    ],
+    [
+      "phase",
+      "初始化题目代码"
+    ],
+    [
+      "log",
+      "题目代码初始化：退出码 128\nfatal: not a git repository (or any of the parent directories): .git"
+    ]
+  ]
+}

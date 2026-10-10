@@ -1,0 +1,81 @@
+{
+  "storage_with_protected_result": {
+    "exception": "TypeError",
+    "message": "string indices must be integers, not 'str'",
+    "non_cleanup_keys": [
+      "group_id",
+      "configuration_fingerprint",
+      "model",
+      "profile_id",
+      "profile_name",
+      "profile_version",
+      "conditions_known",
+      "pricing_source",
+      "conditions",
+      "dataset",
+      "instance_id",
+      "case_key",
+      "benchmark_snapshot",
+      "identity_valid",
+      "identity_warning",
+      "attempt_id",
+      "attempt_number",
+      "created",
+      "status",
+      "verdict",
+      "solve_run_id",
+      "evaluation_run_id",
+      "evaluation_run_ids",
+      "latest_evaluation_status",
+      "has_later_evaluation_error",
+      "patch_hash",
+      "association",
+      "tests",
+      "cost",
+      "calls",
+      "error",
+      "timing",
+      "experiment_id",
+      "experiment_item_id"
+    ]
+  },
+  "latest_valid_chronology": {
+    "latest_evaluation": "20260920-120000-00000005",
+    "latest_evaluation_created": "2026-09-20T12:05:00+00:00",
+    "latest_evaluation_passed": true,
+    "chosen_attempts": [
+      "20260920-120000-00000003"
+    ],
+    "chosen_summary": {
+      "instances": 1,
+      "evaluated": 1,
+      "resolved": 0,
+      "unresolved": 1,
+      "resolution_rate": 0.0,
+      "denominator": 1,
+      "requires_dataset": false,
+      "denominator_kind": "valid_evaluations",
+      "unevaluated": 0,
+      "errors": 0,
+      "cancelled": 0,
+      "coverage_rate": 1.0,
+      "estimated_cost": 0.12,
+      "cost_known": 1,
+      "cost_unknown": 0,
+      "mean_solve_seconds": 10.0,
+      "timed_solves": 1,
+      "mean_evaluation_seconds": 10.0,
+      "timed_evaluations": 1,
+      "mean_preparation_seconds": null,
+      "timed_preparations": 0
+    },
+    "earlier_valid_evaluation_created": "2026-09-20T12:04:00+00:00"
+  },
+  "conversation_origin": {
+    "selected_prediction_origin": "origin-a",
+    "returned_messages": [
+      "other attempt B"
+    ],
+    "note": "以下为与本次补丁及来源模型一致的已保存对话，不是本次评测的新回复。"
+  }
+}

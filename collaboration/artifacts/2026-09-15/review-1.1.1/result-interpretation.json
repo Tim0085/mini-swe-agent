@@ -1,0 +1,24 @@
+{
+  "infrastructure_failure_summary": {
+    "resolved": 0,
+    "errors": 0,
+    "completed": 1,
+    "unresolved": 1,
+    "verdict": "未通过（请查看详细报告）"
+  },
+  "ambiguous_failure_summary": {
+    "resolved": 0,
+    "errors": 0,
+    "completed": 1,
+    "unresolved": 1,
+    "verdict": "未通过（请查看详细报告）"
+  },
+  "new_file_change_list": [
+    {
+      "path": "new_output.py",
+      "change": "新增"
+    }
+  ],
+  "new_file_download_diff_bytes": 0,
+  "model_calls": 0
+}

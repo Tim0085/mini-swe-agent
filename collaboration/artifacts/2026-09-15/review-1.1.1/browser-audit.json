@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "refresh_prepared": {
+      "loaded": false,
+      "buttonDisabled": false,
+      "notice": "请先加载题目，并从加载结果选择后续操作。",
+      "pendingRequest": null
+    },
+    "settings_conflict": {
+      "first": "配置已被其他窗口修改，请重新加载后保存。",
+      "afterReload": "配置已被其他窗口修改，请重新加载后保存。",
+      "draftValue": "55"
+    },
+    "long_content_layout": {
+      "viewport": 390,
+      "documentWidth": 390,
+      "titleWidth": 350
+    },
+    "narrow_controls": [
+      {
+        "id": "浏览文件夹",
+        "tag": "SUMMARY",
+        "width": 350,
+        "height": 20
+      },
+      {
+        "id": "auto",
+        "tag": "INPUT",
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "tab_semantics": {
+      "selectedTab": "mini-tab-dataview-1",
+      "panelLabelledBy": "mini-tab-dataview-1"
+    }
+  },
+  "model_calls": 0,
+  "production_changed": false,
+  "pageErrors": []
+}

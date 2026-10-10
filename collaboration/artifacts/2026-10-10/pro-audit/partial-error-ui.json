@@ -1,0 +1,7 @@
+{
+  "list_text": "本次部分补丁instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26openai/offline-pro-ui · SWE-bench Pro V2（公开题集） · 固定版本 2d52cb3df914 · test · 2026/10/10 08:00:02部分补丁待评测修复 未知 · 回归 未知未知 · 求解 1.0 秒instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866openai/offline-pro-ui · SWE-bench Pro V2（公开题集） · 固定版本 2d52cb3df914 · test · 2026/10/10 08:00:00已解决修复 1/1 · 回归 1/1未知 · 求解 未知",
+  "detail": {
+    "result": "InternalServerError: local fixture upstream disconnected",
+    "summary": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26部分补丁待评测SWE-bench Pro V2（公开题集） · 固定版本 2d52cb3df914 · test部分补丁 · 已保留本次运行中的代码改动。求解停止原因：InternalServerError。这不代表模型已成功提交。部分补丁，待评测需修复的测试没有可用测试明细不将缺失测试记录计作零分。应保持通过的回归测试没有可用测试明细不将缺失测试记录计作零分。准备 未知 · 求解 1.0 秒 · 评测 未知全流程 未知 · 1 次调用 · 估算 未知InternalServerError: local fixture upstream disconnected旧记录未保存完整的运行条件，历史对比仅供参考。查看求解过程评测本次补丁"
+  }
+}

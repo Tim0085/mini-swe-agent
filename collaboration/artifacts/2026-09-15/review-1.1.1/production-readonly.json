@@ -1,0 +1,19 @@
+{
+  "production_api": "not responding; not restarted",
+  "storage_actual_bytes": 5505298,
+  "storage_displayed_bytes": 4999180,
+  "storage_largest_groups": {
+    "runs": 3982847,
+    "fix-instances": 486064,
+    "test-runs": 431481,
+    "audit": 287972,
+    "patch-choice-tests": 217974,
+    "fix-test-temp-complete": 14085,
+    "fix-test-temp-signoff": 13067,
+    "fix-test-temp-verified": 13067,
+    "fix-test-temp-2": 11058,
+    "fix-test-temp-3": 11058
+  },
+  "read_only": true,
+  "docker_read_only_probe": "linux engine responded"
+}

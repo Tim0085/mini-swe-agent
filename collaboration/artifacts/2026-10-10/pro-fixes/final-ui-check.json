@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    "task header respects unknown billing and matches result summary",
+    "narrow 390px failed partial layout has no overflow"
+  ],
+  "stats": "1 次调用 · 估算 未知",
+  "page_errors": [],
+  "model_calls": 0,
+  "downloads": 0,
+  "isolated": true,
+  "review_regression": {
+    "passed": true,
+    "checks": [
+      "real corrupted Pro cache returns 400 and UI preserves recache guidance",
+      "corrupt cached task blocks starting",
+      "restoring isolated valid cache enables start without downloads",
+      "production cached file SHA256 unchanged"
+    ],
+    "backend_status": 400,
+    "displayed_message": "Pro 缓存资料无效或版本不匹配，请允许下载后重新缓存题目。",
+    "production_file_unchanged": true,
+    "isolated_cache_restored": true,
+    "model_calls": 0,
+    "downloads": 0,
+    "submitted_tasks": 0,
+    "page_errors": []
+  }
+}

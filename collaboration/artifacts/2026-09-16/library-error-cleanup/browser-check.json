@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "offline_task_then_library": true,
+  "settings_save_then_library": true,
+  "transient_errors_removed": true,
+  "fixed_errors_preserved": true,
+  "accessibility_description_preserved": true,
+  "default_page_size": 8,
+  "page_sizes_checked": [
+    8,
+    16,
+    25,
+    50
+  ],
+  "cross_page_selection_and_reload": true,
+  "narrow_layout": true,
+  "page_errors": 0,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "production_touched": false
+}

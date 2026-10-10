@@ -1,0 +1,12 @@
+{
+  "source_sha256": "1497b218db0a8259d22471812f0de12b779c699daf741b930d68bc717636f0bf",
+  "source_bytes": 4864925,
+  "source_revision": "34d5a58864acf91613740a09ec5d205228dcfa39",
+  "catalog_rows": 860,
+  "public_projection_no_answer_fields": true,
+  "single_case_cached_and_reloaded": true,
+  "required_interface_preserved": true,
+  "production_state_modified": false,
+  "image_downloads": 0,
+  "model_calls": 0
+}

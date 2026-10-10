@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-10",
+  "finding": "F3 / PRO-APPROVAL-DEADLINE",
+  "status": "fixed and verified in isolated instances",
+  "changed_product_files": ["local_setup/webui/approval.py", "local_setup/webui/worker.py"],
+  "root_owned_integration": "server.py handles matching approval_expired events and rejects time.time() >= expires_at before writing stdin",
+  "implementation": "One lazily started stdin reader thread and queue per worker; Pro waits use the remaining monotonic task deadline. Expiry emits a ticket-specific event and raises TimeExceeded into the existing real partial-patch capture path. Non-Pro waits keep their unlimited manual-confirmation behavior.",
+  "test_file": "local_setup/webui/tests/test_approval_deadline.py",
+  "pytest": {"passed": 4, "failed": 0, "existing_dependency_warnings": 2},
+  "live_checks": [
+    {"file": "approval-deadline-check.json", "result": "A real Pro worker stopped waiting without user input, retained TimeExceeded and captured the existing changes."},
+    {"file": "manager-deadline-check.json", "result": "Real Manager.pump cleared pending, rejected old/expired tickets, completed cleanup, and Queues.consume associated only this attempt's partial patch with the next evaluation stage."},
+    {"file": "cancellation-check.json", "result": "Stopping a real running Pro command cancelled the worker, paused its queue, cleaned its container and did not auto-evaluate."}
+  ],
+  "deadline_test_boundary": "Live timeout checks invoke solve with a 5-second isolated diagnostic snapshot. The registered official 3000-second snapshot and historical identities were not changed.",
+  "coverage": ["normal approval", "rejection", "EOF", "wrong ticket", "late expired ticket", "timeout without input", "matching-event invalidation", "cancellation", "one reader across multiple approval waits"],
+  "external_model_requests": 0,
+  "image_downloads": 0,
+  "new_dependencies": 0,
+  "production_service_modified": false,
+  "owned_container_residue": false
+}

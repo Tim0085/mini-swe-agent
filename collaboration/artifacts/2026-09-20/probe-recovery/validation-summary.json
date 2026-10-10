@@ -1,0 +1,24 @@
+{
+  "pytest_passed": 84,
+  "pytest_warnings": 3,
+  "pytest_seconds": 104.61,
+  "browser": {
+    "passed": true,
+    "legacy_verified": true,
+    "inline_consent": true,
+    "failure_retry": true,
+    "refresh_recovery": true,
+    "actual_model_id": true,
+    "narrow_width": 390,
+    "page_errors": [],
+    "external_calls": 0
+  },
+  "source_fingerprint": "f9b6f9cb9a496b1c",
+  "original_config_and_key_match_previous_baseline": true,
+  "external_model_calls": 0,
+  "new_dependencies": 0,
+  "downloads": 0,
+  "production_restarted": false,
+  "isolated_backend_stopped": true,
+  "grok_live_diagnosis": "not_verified"
+}

@@ -1,0 +1,25 @@
+{
+  "queue_id": "20260916-004014-1f5d3751",
+  "status": "completed",
+  "stages": [
+    "download",
+    "evaluate"
+  ],
+  "evaluation": {
+    "category": "passed",
+    "resolved": 1,
+    "completed": 1,
+    "errors": 0,
+    "unresolved": 0
+  },
+  "estimated_model_cost": 0.0,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "new_instance_downloads": 0,
+  "isolated": true,
+  "child_runs": [
+    "20260916-004015-8abba846",
+    "20260916-004021-ecddcf24"
+  ],
+  "cleanup_pending": false
+}

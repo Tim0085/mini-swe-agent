@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-09",
+  "version": "1.5.1",
+  "source_version": "caa926a21f62d51d",
+  "pytest": {
+    "passed": 153,
+    "warnings": 3,
+    "seconds": 191.46
+  },
+  "browser": {
+    "passed": true,
+    "checks": 15,
+    "widths": [
+      1440,
+      390
+    ],
+    "page_errors": []
+  },
+  "scope": {
+    "review_items": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9"
+    ],
+    "queue_response_race": true,
+    "polish_items": 3
+  },
+  "storage_first_isolated_http_ms": 15.03,
+  "fresh_isolated_runtime": true,
+  "isolated_service_stopped": true,
+  "protected_files": 341,
+  "changed_protected_files": [],
+  "document_links": "passed",
+  "javascript_syntax": "passed",
+  "impeccable_detector_findings": 0,
+  "new_environments": 0,
+  "dependency_installs": 0,
+  "real_model_calls": 0,
+  "image_downloads": 0,
+  "production_restart": "completed_after_explicit_user_confirmation",
+  "remaining": null,
+  "production_check": "production-restart-check.json",
+  "production_version": "1.5.1",
+  "production_storage_initial_http_ms": 14.944,
+  "expected_restart_changes": [
+    ".local\\webui\\service.json"
+  ],
+  "independent_completion_audit": "passed"
+}

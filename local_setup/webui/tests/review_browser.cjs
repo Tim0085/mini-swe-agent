@@ -1,0 +1,27 @@
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const {chromium}=require(process.env.MINI_PLAYWRIGHT_MODULE||'C:/Users/Tim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'../../..'),loc=JSON.parse(fs.readFileSync(path.join(root,'.local/webui/implementation-20260920/browser-instance.json'),'utf8'));
+assert(loc.state.includes('implementation-20260920')&&loc.state.includes('browser-'));
+const service=JSON.parse(fs.readFileSync(path.join(loc.state,'service.json'),'utf8')),out=path.join(root,'collaboration/artifacts/2026-09-20/workbench-review');fs.mkdirSync(out,{recursive:true});
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1050}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`http://127.0.0.1:${service.port}/#${service.nonce}`);await page.waitForFunction(()=>connected&&!initialization);
+ await page.locator('[data-page="results"]').click();await page.locator('#results-dataset').selectOption('lite');await page.locator('[data-results-tab="compare"]').click();
+ await page.waitForFunction(()=>!document.getElementById('compare-content').hidden&&document.querySelectorAll('#compare-matrix tbody tr').length===2);
+ assert((await page.locator('#compare-bars').innerText()).includes('100.0%'));assert((await page.locator('#compare-bars').innerText()).includes('50.0%'));
+ await page.screenshot({path:path.join(out,'comparison-desktop.png'),fullPage:true});
+ await page.locator('#compare-matrix .is-failed').click();assert(await page.locator('#compare-detail').isVisible());assert((await page.locator('#compare-detail').innerText()).includes('关键修复测试失败'));
+ await page.screenshot({path:path.join(out,'detail-desktop.png')});
+ await page.locator('#compare-detail-close').click();await page.setViewportSize({width:390,height:844});await page.locator('#page-results h1').scrollIntoViewIfNeeded();
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(out,'comparison-mobile.png'),fullPage:true});
+ await page.locator('#compare-models summary').click();for(const input of await page.locator('#compare-model-options input').all())await input.uncheck();await page.locator('#compare-update').click();
+ assert((await page.locator('#compare-feedback').innerText()).includes('勾选'));assert(await page.locator('#compare-content').isHidden());
+ await page.locator('#compare-model-options input').first().check();await page.locator('#compare-update').click();await page.waitForFunction(()=>!document.getElementById('compare-content').hidden);
+ assert((await page.locator('#compare-insight').innerText()).includes('没有共同'));assert.equal(await page.locator('#compare-bars .comparison-score').count(),0);
+ await page.locator('[data-results-tab="overview"]').click();await page.locator('#results-dataset').selectOption('verified');await page.waitForFunction(()=>resultsData?.items?.some(x=>x.instance_id==='astropy__astropy-13236'));
+ const real=await page.locator('#results-items .result-row').filter({hasText:'astropy__astropy-13236'}).first().innerText();assert(real.includes('0/2')&&real.includes('644/644'));
+ await page.screenshot({path:path.join(out,'overview-mobile.png'),fullPage:true});
+ const extracted=await page.evaluate(()=>messageText([{type:'reasoning',summary:[]},{type:'message',content:[{type:'output_text',text:'实际模型回复'}]},{type:'function_call',arguments:'secret ignored'}]));assert.equal(extracted,'实际模型回复');
+ await page.locator('[data-results-tab="overview"]').focus();await page.keyboard.press('End');assert.equal(await page.locator('[data-results-tab="experiments"]').getAttribute('aria-selected'),'true');
+ assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'browser-check.json'),JSON.stringify({passed:true,desktop:true,mobile:390,matrix_drilldown:true,empty_selection:true,no_common_cases:true,real_test_counts:true,response_text:true,keyboard_tabs:true,errors},null,2));console.log('PASS review UI and real report counts');
+}finally{await browser.close();}})().catch(e=>{console.error(e.message);process.exitCode=1;});

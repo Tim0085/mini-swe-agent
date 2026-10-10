@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "checks": [
+    "four selectors share the benchmark registry and preserve Verified default",
+    "single-task capability copy preserves checkbox value; long-ID combobox selects full identity; switching clears grants",
+    "catalog keeps title and full identity, default page size, partial-patch preview, existing download confirmations; desktop and 390px",
+    "experiment import preserves exact identity and capability labels; changed benchmark invalidates selection and grants",
+    "partial patch preserves original stopping reason, is visibly distinct from submission, and offers explicit same-attempt evaluation without starting it",
+    "mixed benchmark rates remain suppressed; Pro comparison is scoped to one fixed benchmark and fits 390px",
+    "offline benchmark switch cannot select stale Pro rows and recovers via local retry",
+    "copy full Pro identity to clipboard works in isolated browser context",
+    "empty-selection error is local, announced, and visible at narrow bottom action"
+  ],
+  "findings": [
+    {
+      "id": "pro-cache-regex",
+      "backend_ready": true,
+      "frontend": {
+        "loaded": false,
+        "startDisabled": true,
+        "note": "输入题号、仓库或关键词，再从下拉列表选择题目。",
+        "instance": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c"
+      },
+      "cache_request_count": 0
+    },
+    {
+      "id": "detail-close-race",
+      "immediateHidden": true,
+      "afterResponseHidden": false,
+      "title": "instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866"
+    },
+    {
+      "id": "partial-time-reason",
+      "text": "部分补丁 · 已保留本次运行中的代码改动。求解停止原因：TimeExceeded。这不代表模型已成功提交。"
+    },
+    {
+      "id": "inline-evaluation-navigation-race",
+      "selectedId": "20261010-000001-00000002",
+      "plan": {
+        "source_run_id": "20261010-000002-00000003",
+        "view_run_id": "20261010-000001-00000002",
+        "dataset": "pro-v2-2d52cb3d",
+        "instance_id": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "prediction_path": "F:\\mini-swe-agent\\.local\\webui\\pro-audit-20261010\\frontend\\0d8e93f53a9e44fabba28b5b9fc6d4c6\\runs\\20261010-000002-00000003\\predictions.jsonl"
+      },
+      "hidden": false,
+      "summary": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26 · openai/offline-pro-ui · 1 个改动文件\n来源：本次求解 20261010-000002-00000003\n部分补丁 · 已保留本次运行中的代码改动。求解停止原因：达到步数或费用限制。这不代表模型已成功提交。"
+    }
+  ],
+  "page_errors": [],
+  "submitted_tasks": 0,
+  "model_calls": 0,
+  "downloads": 0,
+  "isolated": true,
+  "clipboard_write_exercised": false
+}

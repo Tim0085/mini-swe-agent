@@ -1,0 +1,10 @@
+{
+  "isolated_restart_verified": true,
+  "version": "1.5.1",
+  "code_version": "caa926a21f62d51d",
+  "update_available": false,
+  "storage_initial_http_ms": 15.03,
+  "storage_background_complete": true,
+  "results_api_status": 200,
+  "production_restarted": false
+}

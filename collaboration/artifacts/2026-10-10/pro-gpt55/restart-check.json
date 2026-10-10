@@ -1,0 +1,13 @@
+{
+  "authorized": true,
+  "before": "1.6.0",
+  "after": "1.6.1",
+  "source_version": "ea85e026be468168",
+  "update_available": false,
+  "active_run": null,
+  "unfinished_queue": null,
+  "cleanup_pending": [],
+  "protected_files_unchanged": 432,
+  "service_identity_updated_expected": true,
+  "user_browser_operated": false
+}

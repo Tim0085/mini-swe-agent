@@ -1,0 +1,39 @@
+{
+  "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+  "dataset": "pro-v2-2d52cb3d",
+  "model": "openai/gpt-5.6-luna",
+  "queue_id": "20261010-003018-79429446",
+  "solve_id": "20261010-003021-b1313c53",
+  "model_requests": 1,
+  "response_received": false,
+  "model_end_to_end_passed": false,
+  "failure": "upstream_disconnected_without_response",
+  "cost_known": false,
+  "cost_estimate": null,
+  "automatic_retries": 0,
+  "solver_patch_generated": false,
+  "paid_attempt_repeated": false,
+  "batch_closed_after_failure": true,
+  "containers_remaining": 0,
+  "official_baseline": {
+    "completed": true,
+    "empty_patch": true,
+    "official_reward": 0,
+    "counts": {
+      "FAIL_TO_PASS": {
+        "passed": 0,
+        "failed": 1
+      },
+      "PASS_TO_PASS": {
+        "passed": 9,
+        "failed": 0
+      }
+    },
+    "infrastructure_errors": 0,
+    "included_in_model_scores": false
+  },
+  "downloaded_images": 1,
+  "image_digest": "sha256:ca6ba92316b90aa0227bc18c97fb0b458d415f216416fe3c3b0ad526f41cc017",
+  "compressed_bytes": 638246354,
+  "additional_docker_disk_bytes": null
+}

@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-10",
+  "code_version": "1.6.1",
+  "source_fingerprint": "ea85e026be468168",
+  "addressed_findings": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "O1",
+    "O2",
+    "O3",
+    "O4"
+  ],
+  "full_workbench_pytest": {
+    "passed": 213,
+    "failed": 0,
+    "existing_dependency_warnings": 3,
+    "seconds": 183.48
+  },
+  "browser": {
+    "main_checks": 18,
+    "targeted_checks": 2,
+    "review_regression_checks": 4,
+    "desktop_and_390px": true,
+    "page_errors": []
+  },
+  "independent_review": {
+    "reports": [
+      "review-results-server.json",
+      "independent-data-frontend-review.json"
+    ],
+    "additional_regressions_fixed_and_verified": 2,
+    "open_findings": 0
+  },
+  "protected_files": {
+    "checked": 433,
+    "changed": []
+  },
+  "historical_results": {
+    "evaluated_attempts_checked": 17,
+    "historical_verdict_test_patch_cost_changes": [],
+    "all_records_read_only": true,
+    "results_before": 26,
+    "results_after": 26
+  },
+  "additional_validation": [
+    "pip check passed",
+    "three changed JavaScript files syntax checked",
+    "real cached Docker approval deadline and cancellation",
+    "642 official public row hashes independently verified",
+    "cross-process cache coordination via localhost service"
+  ],
+  "paid_model_calls": 0,
+  "new_image_downloads": 0,
+  "new_dependencies": 0,
+  "new_environments": 0,
+  "production": {
+    "restarted": false,
+    "version": "1.6.0",
+    "code_version": "93ba799332d25bf1",
+    "update_available": true,
+    "active_run": null,
+    "tool_testing": false,
+    "queue_id": null,
+    "cleanup_pending": [],
+    "lifecycle": {
+      "status": "idle"
+    }
+  }
+}

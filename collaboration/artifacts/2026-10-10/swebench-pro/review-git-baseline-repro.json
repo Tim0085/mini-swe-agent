@@ -1,0 +1,10 @@
+{
+  "isolated": true,
+  "baseline": "223f8b40e7621d0e5c01483132235370a16d51f3",
+  "head_changed": true,
+  "current_capture_empty": true,
+  "baseline_patch_nonempty": true,
+  "model_calls": 0,
+  "docker_commands": 0,
+  "downloaded_bytes": 0
+}

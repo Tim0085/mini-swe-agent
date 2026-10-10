@@ -107,3 +107,14 @@ Use these component names in parentheses for `fix`, `feat`, `enh`, and `ref` com
 - `benchmarks` - Changes to benchmark runners (swebench, inspector)
 - `cli` - Changes to CLI argument handling
 - `deps` - Dependency updates
+
+## Local workbench and collaboration files
+
+- Start at `collaboration/README.md` for local setup, frontend plans, validation, and operating instructions. Keep upstream `docs/` and `README.md` separate.
+- Conversation-derived docs belong in `collaboration/docs/`; sanitized screenshots and reports in `collaboration/artifacts/YYYY-MM-DD/topic/`.
+- Workbench code lives in `local_setup/webui/`; private state, backups, logs and tests stay in `.local/webui/`. Never publish `service.json`, credentials or raw conversations.
+- Preserve existing environment, configuration, cache, trajectory and evaluation paths. Inspect existing Conda/project interpreters before installing; prefer reuse and do not modify Conda base blindly.
+- Internal variables: `MINI_WEB_STATE`, `MINI_WEB_CONFIG_ROOT`, `MINI_WEB_PORT`, `MINI_WEB_NONCE` (private). `MINI_WEB_TESTING=1` is for isolated diagnostic instances only; browser QA may reuse `MINI_PLAYWRIGHT_MODULE`. Read the runbook first.
+- Version 1.1 lifecycle, recovery, history and cleanup behavior is documented in `collaboration/docs/workbench-fixes-2026-09-15.md`. Tests must use their isolated instance; do not restart the user's open workbench without confirmation.
+- Use offline deterministic checks by default. Paid model tests require authorization; unexecuted tests must remain marked unverified.
+- Design context is in `.impeccable.md`. Update the plan, current-state and runbook when behavior changes.

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "actual service exit during basic",
+    "actual service exit during slow_model",
+    "actual service exit during slow_shell",
+    "abrupt owned-service termination kills worker and recovers without rerunning",
+    "corrupt locator reuses live instance and preserves damaged file",
+    "1000-record pagination, corrupt-record isolation, and exact fixture cleanup",
+    "config repair remains reachable and preserves readable relay settings",
+    "real offline edit produces independent before-after file inventory",
+    "unavailable Docker retains cleanup record; explicit keep-record exit closes Python"
+  ],
+  "paid_model_calls": 0,
+  "production_service_touched": false,
+  "history_page_seconds": 0.031000000000858563
+}

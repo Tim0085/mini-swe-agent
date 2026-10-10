@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "unique patch selected, duplicate merged, smoke excluded",
+    "changing issue clears validity and cannot submit wrong patch",
+    "reload restores selection and checks it again",
+    "evaluation opens progress and matched historical conversation",
+    "missing conversation has explanation and fast switching retains selected source",
+    "real offline conversation shows command output inline",
+    "narrow layout and script errors"
+  ],
+  "page_errors": 0,
+  "paid_model_calls": 0,
+  "production_tasks_changed": false
+}

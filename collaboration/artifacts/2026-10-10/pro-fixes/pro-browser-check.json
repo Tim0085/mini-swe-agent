@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "checks": [
+    "four selectors share the benchmark registry and preserve Verified default",
+    "single-task capability copy preserves checkbox value; long-ID combobox selects full identity; switching clears grants",
+    "catalog keeps title and full identity, default page size, partial-patch preview, existing download confirmations; desktop and 390px",
+    "experiment import preserves exact identity and capability labels; changed benchmark invalidates selection and grants",
+    "partial patch preserves original stopping reason, is visibly distinct from submission, and offers explicit same-attempt evaluation without starting it",
+    "mixed benchmark rates remain suppressed; Pro comparison is scoped to one fixed benchmark and fits 390px",
+    "offline benchmark switch cannot select stale Pro rows and recovers via local retry",
+    "cached Pro ID is recognized and the single-task start control becomes available",
+    "copy full Pro identity to clipboard works in isolated browser context",
+    "closing a pending detail discards the late response",
+    "empty-selection error is local, announced, and visible at narrow bottom action",
+    "TimeExceeded is explained in Chinese",
+    "late inline preview cannot attach to a different task",
+    "evaluation timeout prefers frozen runtime, recognizes historical evaluators, and keeps unknown explicit",
+    "failed partial remains an error with a separate explicit evaluation action and actual reduced budget",
+    "inline preview cancellation and leave-return navigation discard pending previews",
+    "preview invalidation retains pending request identity and recovery controls without re-submitting",
+    "experiment mixed effective budgets are marked per-task instead of one misleading column limit"
+  ],
+  "evidence": [
+    {
+      "id": "pro-cache-regex",
+      "backend_ready": true,
+      "frontend": {
+        "loaded": true,
+        "startDisabled": false,
+        "note": "已核对本机题目缓存，可继续。开始时会再次检查缓存、Docker 和镜像；不自动下载。",
+        "instance": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c"
+      },
+      "cache_request_count": 1
+    },
+    {
+      "id": "detail-close-race",
+      "immediateHidden": true,
+      "afterResponseHidden": true,
+      "title": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26"
+    },
+    {
+      "id": "partial-time-reason",
+      "text": "部分补丁 · 已保留本次运行中的代码改动。求解停止原因：达到本题时间限制。这不代表模型已成功提交。"
+    },
+    {
+      "id": "inline-evaluation-navigation-race",
+      "selectedId": "20261010-000001-00000002",
+      "plan": null,
+      "hidden": true,
+      "summary": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26 · openai/offline-pro-ui · 1 个改动文件\n来源：本次求解 20261010-000002-00000003\n部分补丁 · 已保留本次运行中的代码改动。求解停止原因：InternalServerError。这不代表模型已成功提交。"
+    },
+    {
+      "id": "timeout-copy",
+      "pro": "单题测试超时 3000 秒；准备与清理另计。",
+      "recorded": "单题测试超时 123 秒；准备与清理另计。",
+      "legacy": "单题测试超时 1800 秒；准备与清理另计。",
+      "unknown": "此记录未保存单题测试时限。"
+    },
+    {
+      "id": "failed-partial-budget",
+      "status": "solve_failed",
+      "available": true,
+      "summary": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26求解未完成SWE-bench Pro V2（公开题集） · 固定版本 2d52cb3df914 · test部分补丁 · 已保留本次运行中的代码改动。求解停止原因：InternalServerError。这不代表模型已成功提交。受剩余批次预算限制，本次费用上限 $0.2（原每题上限 $3）求解失败需修复的测试没有可用测试明细不将缺失测试记录计作零分。应保持通过的回归测试没有可用测试明细不将缺失测试记录计作零分。准备 未知 · 求解 1.0 秒 · 评测 未知全流程 未知 · 1 次调用 · 估算 未知InternalServerError: isolated upstream failure查看求解过程手动评测已保留改动",
+      "conditions": {
+        "limits": {
+          "step_limit": 40,
+          "cost_limit": 0.2,
+          "timeout": 120
+        },
+        "configured_limits": {
+          "step_limit": 40,
+          "cost_limit": 3,
+          "timeout": 120
+        },
+        "effective_limits": {
+          "step_limit": 40,
+          "cost_limit": 0.2,
+          "timeout": 120
+        },
+        "limits_source": "request_settings",
+        "parameters": {},
+        "connection_id": "20261010-080757-3105c06c",
+        "connection_name": "UI隔离连接",
+        "pricing_fingerprint": "5485719cb06752917a37caca69365a035b65336e3221dc2246bcc1dea7fcf1a5",
+        "pricing_source": "explicit_free",
+        "pricing": {
+          "mode": "free",
+          "currency": "USD",
+          "input_per_million": 0,
+          "output_per_million": 0,
+          "source": "explicit_free",
+          "available": true
+        },
+        "protocol": "chat",
+        "runtime_fingerprint": "8336b309fa97e526e8b866b89e51205aff712301ccddce53531ab577b30202ac",
+        "configs_fingerprint": "15723d0b0ecaf62c300ab89b327c15d589b47fc8ed1b129ab2f29bc39b69fb46",
+        "auto_approve": false
+      }
+    }
+  ],
+  "page_errors": [],
+  "submitted_tasks": 0,
+  "model_calls": 0,
+  "downloads": 0,
+  "isolated": true,
+  "clipboard_write_exercised": true
+}

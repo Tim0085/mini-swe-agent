@@ -1,0 +1,2 @@
+-e .
+httpx[socks]

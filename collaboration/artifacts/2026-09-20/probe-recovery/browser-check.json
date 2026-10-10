@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "legacy_verified": true,
+  "inline_consent": true,
+  "failure_retry": true,
+  "refresh_recovery": true,
+  "actual_model_id": true,
+  "narrow_width": 390,
+  "page_errors": [],
+  "external_calls": 0
+}

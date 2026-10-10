@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "four selectors share registry; Verified remains default",
+    "single-case selection clears grants and restores new dataset draft",
+    "library fixed-version preview and changed-dataset grants reset",
+    "experiment import and dataset changes reset preview and grants; 390px layout",
+    "same-ID fixture results remain dataset-filtered",
+    "library draft restored; no tasks, downloads, or model requests"
+  ],
+  "page_errors": [],
+  "submitted_tasks": 0,
+  "model_calls": 0,
+  "downloads": 0,
+  "isolated": true
+}

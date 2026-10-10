@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-09-20T14:01:16+00:00",
+  "production_restarted": true,
+  "version": "1.4.0",
+  "source_fingerprint": "f9b6f9cb9a496b1c",
+  "update_available": false,
+  "legacy_test_status": "passed",
+  "legacy_test_current": true,
+  "status_queries": [
+    "completed",
+    "completed"
+  ],
+  "external_model_calls": 0,
+  "active_run": null
+}

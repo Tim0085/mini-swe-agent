@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "keyword_search": true,
+  "mouse_selection": true,
+  "keyboard_selection": true,
+  "consent_reset": true,
+  "patch_match": true,
+  "dataset_scoping": true,
+  "empty_and_network_error": true,
+  "desktop_and_narrow": true,
+  "page_errors": 0,
+  "tasks_started": 0,
+  "model_calls": 0,
+  "downloads": 0
+}

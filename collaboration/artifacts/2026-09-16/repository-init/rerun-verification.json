@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "new_solve_run": "20260916-093906-c241825f",
+  "evaluation_run": "20260916-094027-6bccd8c3",
+  "evaluation_snapshot_matches_new_prediction": true,
+  "model_calls": 8,
+  "estimated_cost": 0.15835500000000002,
+  "cleanup_pending": false,
+  "owned_containers_remaining": false,
+  "protected_files_unchanged": 11
+}

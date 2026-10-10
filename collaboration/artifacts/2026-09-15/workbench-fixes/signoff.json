@@ -1,0 +1,14 @@
+{
+  "code_version": "ba0acf6bde268474",
+  "pytest_tests": 16,
+  "browser_scenarios": 12,
+  "fault_scenarios": 9,
+  "documentation_links": 18,
+  "protected_files_unchanged": 11,
+  "new_dependencies_this_fix": 0,
+  "paid_model_calls": 0,
+  "default_instance_upgrade": "activated_and_verified",
+  "running_version": "1.1.0",
+  "production_browser_check": "passed",
+  "deployment_evidence": "deployment-check.json"
+}

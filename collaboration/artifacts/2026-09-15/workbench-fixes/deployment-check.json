@@ -1,0 +1,22 @@
+{
+  "authorized_restart": true,
+  "old_process_ownership_verified": true,
+  "old_process_exited": true,
+  "active_tasks_before": 0,
+  "version": "1.1.0",
+  "code_version": "ba0acf6bde268474",
+  "identity_verified": true,
+  "configuration_valid": true,
+  "credential_state": "ready",
+  "key_configured": true,
+  "no_active_task_after": true,
+  "recent_history_preserved": true,
+  "history_count": 6,
+  "paid_model_calls": 0,
+  "browser_windows_untouched": true,
+  "port": 8765,
+  "production_browser_connected": true,
+  "exit_restart_controls_visible": true,
+  "model_setting_visible": true,
+  "browser_page_errors": 0
+}

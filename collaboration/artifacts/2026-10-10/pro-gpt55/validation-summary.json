@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-10",
+  "authorized_scope": "one cached Pro case, GPT-5.5, maximum estimated budget USD 3",
+  "checks": {
+    "one_fresh_solve_no_retries": true,
+    "complete_workflow": true,
+    "gpt55_original_profile": true,
+    "budget_3_dollars": true,
+    "billing_known": true,
+    "cost_within_budget": true,
+    "new_submission": true,
+    "evaluation_same_attempt": true,
+    "this_attempt_patch_unchanged": true,
+    "isolated_original_code": true,
+    "official_evaluation_cached_image": true,
+    "official_verdict_recorded": true,
+    "ui_links_evaluation": true,
+    "no_download_grants": true,
+    "cleanup_complete": true,
+    "original_files_unchanged": true,
+    "production_updated_idle": true
+  },
+  "passed": true,
+  "failed_checks": [],
+  "dataset": "pro-v2-2d52cb3d",
+  "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+  "model": "openai/gpt-5.5",
+  "protocol": "responses",
+  "queue_id": "20261010-082936-143fe92b",
+  "solve_id": "20261010-082942-59450318",
+  "evaluate_id": "20261010-083025-9e407c30",
+  "model_exit_status": "Submitted",
+  "official_reward": 1,
+  "counts": {
+    "FAIL_TO_PASS": {
+      "passed": 1,
+      "failed": 0
+    },
+    "PASS_TO_PASS": {
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "infrastructure_errors": 0,
+  "calls": 9,
+  "estimated_cost_usd": 0.21421700000000002,
+  "budget_usd": 3,
+  "effective_limits": {
+    "step_limit": 40,
+    "cost_limit": 3.0,
+    "timeout": 120
+  },
+  "timings_seconds": {
+    "download": 6.0,
+    "solve": 42.0,
+    "evaluate": 7.0
+  },
+  "patch_hash": "6a1a3d9c5816f4a4078ce74b4973afa74531e99cacd0a88372b9d46949a1b144",
+  "protected_files_checked": 432,
+  "protected_files_changed": [],
+  "containers_remaining": 0,
+  "new_image_downloads": 0,
+  "new_dependencies": 0,
+  "new_environments": 0,
+  "source_version": "ea85e026be468168",
+  "production_version": "1.6.1",
+  "backend_restarted": true,
+  "user_browser_operated": false,
+  "previous_full_workbench_tests": {
+    "passed": 213,
+    "product_source_unchanged": true
+  }
+}

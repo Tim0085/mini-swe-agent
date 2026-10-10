@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "four selectors share the benchmark registry and preserve Verified default",
+    "single-task capability copy preserves checkbox value; long-ID combobox selects full identity; switching clears grants",
+    "catalog keeps title and full identity, default page size, partial-patch preview, existing download confirmations; desktop and 390px",
+    "experiment import preserves exact identity and capability labels; changed benchmark invalidates selection and grants",
+    "partial patch preserves original stopping reason, is visibly distinct from submission, and offers explicit same-attempt evaluation without starting it",
+    "mixed benchmark rates remain suppressed; Pro comparison is scoped to one fixed benchmark and fits 390px",
+    "offline benchmark switch cannot select stale Pro rows and recovers via local retry"
+  ],
+  "page_errors": [],
+  "submitted_tasks": 0,
+  "model_calls": 0,
+  "downloads": 0,
+  "isolated": true,
+  "clipboard_write_exercised": false
+}

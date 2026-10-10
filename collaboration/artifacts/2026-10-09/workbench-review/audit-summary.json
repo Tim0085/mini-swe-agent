@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-09",
+  "scope": "review_only",
+  "source_version": "a62cfe27a39303f8",
+  "product_code_edited": false,
+  "pytest": {
+    "passed": 137,
+    "warnings": 3,
+    "seconds": 178.01
+  },
+  "confirmed_findings": 9,
+  "unreproduced_code_candidates": 1,
+  "browser": {
+    "widths": [
+      1440,
+      390
+    ],
+    "page_errors": [],
+    "no_overflow": true,
+    "confirmed_failures": [
+      "reasoning_xhigh_lost",
+      "dataset_offline_stale_rows",
+      "experiment_error_offscreen"
+    ]
+  },
+  "impeccable_detector_findings": 0,
+  "storage_api_seconds": 17.078,
+  "frontend_request_timeout_seconds": 15,
+  "history_records_checked": 69,
+  "new_model_calls": 0,
+  "new_image_downloads": 0,
+  "new_dependencies": 0,
+  "isolated_service_stopped": true,
+  "production_restarted": false,
+  "report": "collaboration/docs/workbench-review-2026-10-09.md"
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-10",
+  "scope": ["F5_public_case_cache_repair", "O1_reuse_pinned_public_data"],
+  "product_files": [
+    "local_setup/webui/pro_data.py",
+    "local_setup/webui/bench.py",
+    "local_setup/webui/vendor/pro/public-manifest.json"
+  ],
+  "tests": [
+    {"suite": "test_pro_data.py + test_pro_cache_identity.py + test_pro_public_cache.py", "passed": 21, "failed": 0},
+    {"suite": "test_pro_integration.py + test_library_queues.py", "passed": 14, "failed": 0, "existing_dependency_warnings": 2}
+  ],
+  "verified": [
+    "642 public rows validated against immutable per-row SHA256 manifest",
+    "shared cache and serialized rows exclude gold patch and hidden test fields",
+    "catalog and case readers reuse the public projection",
+    "three concurrent worker processes make one local HTTP source download",
+    "terminating the downloading test process preserves the prior cache and releases its file lock",
+    "corrupt projection is refused read-only, retained on network or source-hash failure, and repaired only after authorization",
+    "corrupt base_commit, repo and requirements are refused and repaired from trusted public data without network",
+    "original cached task remains usable offline before any shared public cache exists",
+    "queue recovery, frozen benchmark identity and exact-patch integration regression passed"
+  ],
+  "benchmark_snapshot_changed": false,
+  "historical_records_changed": false,
+  "external_requests": 0,
+  "paid_model_calls": 0,
+  "image_downloads": 0,
+  "new_dependencies": 0,
+  "production_service_operations": 0,
+  "network_test_scope": "127.0.0.1 protocol servers only"
+}

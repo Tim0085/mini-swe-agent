@@ -1,0 +1,88 @@
+{
+  "kind": "synthetic-docker-preflight-not-benchmark-score",
+  "official_grader_revision": "e4907b7a90eafaa1f0a6428fd04fe31cdd8b4284",
+  "image_id": "sha256:e082963099ed7d5a5f75a0be46e338be36faae33b2cba5289a9ddbd505997f1f",
+  "network": "none",
+  "cases": [
+    {
+      "fixture": "negative",
+      "resolved": false,
+      "tests_status": {
+        "FAIL_TO_PASS": {
+          "success": [],
+          "failure": [
+            "test_preflight.py::test_fix"
+          ]
+        },
+        "PASS_TO_PASS": {
+          "success": [
+            "test_preflight.py::test_regression"
+          ],
+          "failure": []
+        },
+        "FAIL_TO_FAIL": {
+          "success": [],
+          "failure": []
+        },
+        "PASS_TO_FAIL": {
+          "success": [],
+          "failure": []
+        }
+      },
+      "files": {
+        "patch.diff": {
+          "lf_only": true,
+          "sha256": "d70388e56bdc40ffca5f205ab2023c6b9ad17462c6754a57234b69f7cbf551bb"
+        },
+        "eval.sh": {
+          "lf_only": true,
+          "sha256": "5a1ba42dab014f6eb01b8e85997138c1df72fbd12632e26f7954109a91f3ee0c"
+        }
+      },
+      "report": "F:\\mini-swe-agent\\.local\\webui\\rebench-live-preflight\\065c93775b61465186b1c80556bc0bf4\\logs\\run_evaluation\\mini-rebench-preflight-065c93775b61465186b1c80556bc0bf4-negative\\synthetic-no-model\\fixture__rebench-1\\report.json"
+    },
+    {
+      "fixture": "positive",
+      "resolved": true,
+      "tests_status": {
+        "FAIL_TO_PASS": {
+          "success": [
+            "test_preflight.py::test_fix"
+          ],
+          "failure": []
+        },
+        "PASS_TO_PASS": {
+          "success": [
+            "test_preflight.py::test_regression"
+          ],
+          "failure": []
+        },
+        "FAIL_TO_FAIL": {
+          "success": [],
+          "failure": []
+        },
+        "PASS_TO_FAIL": {
+          "success": [],
+          "failure": []
+        }
+      },
+      "files": {
+        "patch.diff": {
+          "lf_only": true,
+          "sha256": "d691855ec4e16298ab27a47afbe7824089b5425155efb83c0fc5161ef4a00db1"
+        },
+        "eval.sh": {
+          "lf_only": true,
+          "sha256": "5a1ba42dab014f6eb01b8e85997138c1df72fbd12632e26f7954109a91f3ee0c"
+        }
+      },
+      "report": "F:\\mini-swe-agent\\.local\\webui\\rebench-live-preflight\\065c93775b61465186b1c80556bc0bf4\\logs\\run_evaluation\\mini-rebench-preflight-065c93775b61465186b1c80556bc0bf4-positive\\synthetic-no-model\\fixture__rebench-1\\report.json"
+    }
+  ],
+  "containers_removed": true,
+  "existing_images_and_tags_preserved": true,
+  "existing_containers_preserved": true,
+  "downloaded_images": 0,
+  "model_calls": 0,
+  "private_artifacts": "F:\\mini-swe-agent\\.local\\webui\\rebench-live-preflight\\065c93775b61465186b1c80556bc0bf4"
+}

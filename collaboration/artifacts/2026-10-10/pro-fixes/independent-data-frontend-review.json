@@ -1,0 +1,46 @@
+{
+  "reviewer_scope": "Independent review of pro_data.py, bench.py, public-manifest.json and frontend F1/F2/O2/O4 changes; did not review own approval implementation.",
+  "date": "2026-10-10",
+  "findings": [{
+    "id": "REVIEW-CACHE-ERROR-MASK",
+    "priority": 2,
+    "status": "closed after source and browser evidence review",
+    "file": "local_setup/webui/static/workbench.js",
+    "function": "checkCachedProblem",
+    "trigger": "Select an actual valid cached Pro instance whose public fields or official resource cache fail validation.",
+    "issue": "The new catch branch replaces every HTTP 400 with generic input/search instructions. /api/bench/cached also returns 400 for valid IDs with corrupt caches, so the specific cache repair and download-authorization instructions are hidden.",
+    "evidence": "independent-data-frontend-probe.json",
+    "suggestion": "Only replace explicit invalid-ID errors with search guidance; preserve the backend diagnostic for corrupt caches, missing verifier assets and configuration problems.",
+    "resolution": "checkCachedProblem now preserves error.message for HTTP failures. Read-only source review confirms the catch branch no longer replaces 400 responses with generic ID input instructions.",
+    "closure_evidence": ["final-ui-check.json.review_regression", "corrupt-cache-recovery-message.png"],
+    "closure_verification": "Frontend browser evidence shows the actual isolated corrupt-cache HTTP 400 repair message, start disabled while corrupt, and start enabled after restoring the valid cache; the production cache SHA256 was unchanged. The independent reviewer inspected source and evidence without repeating browser actions."
+  }],
+  "open_findings": 0,
+  "data_review": {
+    "new_blocking_findings": 0,
+    "independently_verified": [
+      "Pinned source Parquet SHA256 matches SOURCE_SHA256.",
+      "All 642 public-manifest row hashes equal independent canonical hashing of the pinned source public projection.",
+      "An original full single-instance cache remains readable offline without the shared projection cache.",
+      "A corrupted base_commit is rejected by the read-only cached endpoint and the original damaged file remains byte-identical."
+    ],
+    "code_and_existing_test_review": [
+      "Public projection permits exactly public columns, validates every row and rejects duplicate or missing IDs.",
+      "Cross-process lock is OS-owned, and interrupted workers release it; prior cache bytes are replaced only after complete verification.",
+      "Three-process download coalescing and cancelled-download recovery are covered by actual localhost tests without mocks.",
+      "Single-case repair requiring network occurs only after explicit download authorization; valid old caches do not require new source downloads."
+    ]
+  },
+  "frontend_review": [
+    "Inline evaluation uses request epoch, viewed run identity and generation checks after both asynchronous reads; close/navigation invalidates the plan.",
+    "Library detail close and navigation invalidate in-flight successful responses.",
+    "Known-cost floor is separated from unknown total cost in the task header.",
+    "Partial-patch TimeExceeded and Pro evaluation timeout labels use the correct semantics."
+  ],
+  "review_limits": "Browser tests were intentionally not duplicated while the frontend agent was running them; lock and cancellation tests were reviewed, not rerun by this reviewer.",
+  "product_source_changed_by_reviewer": false,
+  "external_requests": 0,
+  "model_calls": 0,
+  "image_downloads": 0,
+  "production_operations": 0
+}

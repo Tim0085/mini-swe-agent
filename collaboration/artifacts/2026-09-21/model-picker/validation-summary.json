@@ -1,0 +1,21 @@
+{
+  "browser": {
+    "passed": true,
+    "one_row_per_model": true,
+    "legacy_alias_merged": true,
+    "conditions_preserved": true,
+    "search": true,
+    "selection_refresh": true,
+    "export_matches_display": true,
+    "mobile": 390,
+    "errors": []
+  },
+  "backend_results_tests": 12,
+  "model_identity_checks": "passed",
+  "impeccable_findings": 0,
+  "real_condition_groups": 10,
+  "real_model_entries": 5,
+  "paid_model_calls": 0,
+  "production_restart": false,
+  "history_rewritten": false
+}

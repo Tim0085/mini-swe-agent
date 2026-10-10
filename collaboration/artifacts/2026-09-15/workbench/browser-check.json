@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "desktop layout",
+    "directory browsing",
+    "settings read",
+    "offline execution",
+    "approval after reload",
+    "submission",
+    "dataset preview and Docker readiness",
+    "narrow layout"
+  ],
+  "pageErrors": []
+}

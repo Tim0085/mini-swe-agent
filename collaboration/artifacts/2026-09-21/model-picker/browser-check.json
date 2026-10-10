@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "one_row_per_model": true,
+  "legacy_alias_merged": true,
+  "conditions_preserved": true,
+  "search": true,
+  "selection_refresh": true,
+  "export_matches_display": true,
+  "mobile": 390,
+  "errors": []
+}

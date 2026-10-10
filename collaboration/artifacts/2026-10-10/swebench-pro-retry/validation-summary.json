@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-10",
+  "authorized_retry": true,
+  "dataset": "pro-v2-2d52cb3d",
+  "instance_id": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+  "model": "openai/gpt-5.6-luna",
+  "protocol": "responses",
+  "queue_id": "20261010-072551-85f60938",
+  "solve_id": "20261010-072558-aeb14429",
+  "evaluate_id": "20261010-072642-6f82f6e8",
+  "model_end_to_end_passed": true,
+  "official_reward": 1,
+  "counts": {
+    "FAIL_TO_PASS": {
+      "passed": 1,
+      "failed": 0
+    },
+    "PASS_TO_PASS": {
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "infrastructure_errors": 0,
+  "calls": 9,
+  "cost_known": true,
+  "estimated_cost_usd": 0.00784124,
+  "budget_usd": 3,
+  "usage": {
+    "input_tokens": 80035,
+    "output_tokens": 1720,
+    "cached_input_tokens": 56832
+  },
+  "solve_seconds": 44.0,
+  "evaluate_seconds": 8.0,
+  "patch_hash": "6a1a3d9c5816f4a4078ce74b4973afa74531e99cacd0a88372b9d46949a1b144",
+  "patch_source": "this_attempt_container_git_diff",
+  "original_files_unchanged": 350,
+  "containers_remaining": 0,
+  "new_image_downloads": 0,
+  "new_dependencies": 0,
+  "backend_restarted": false,
+  "source_version": "93ba799332d25bf1",
+  "old_unknown_billing_not_included": true
+}

@@ -1,0 +1,30 @@
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const {chromium}=require('C:/Users/Tim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'../../..'),loc=JSON.parse(fs.readFileSync(path.join(root,'.local/webui/audit/fix-instance.json'),'utf8'));
+const state=JSON.parse(fs.readFileSync(path.join(loc.state,'service.json'),'utf8'));
+const out=path.join(root,'collaboration/artifacts/2026-09-16/library-error-cleanup');fs.mkdirSync(out,{recursive:true});
+fs.mkdirSync(path.join(loc.state,'catalog'),{recursive:true});fs.copyFileSync(path.join(root,'.local/webui/catalog/verified.json'),path.join(loc.state,'catalog/verified.json'));
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`http://127.0.0.1:${state.port}/#${state.nonce}`);await page.waitForFunction(()=>connected&&!initialization);
+ await page.locator('.nav-item[data-page="new"]').click();await page.locator('[data-kind="local"]').click();await page.locator('#cwd').fill(loc.config_root);await page.locator('#offline').click();for(let step=0;step<5;step++){await page.waitForFunction(()=>currentRun?.kind==='offline'&&(currentRun.status==='completed'||currentRun.pending),null,{timeout:30000});if(await page.evaluate(()=>currentRun.status==='completed'))break;await page.locator('#approve').click();await page.waitForFunction(()=>!currentRun?.pending);}assert.equal(await page.evaluate(()=>currentRun.status),'completed');
+ await page.locator('.nav-item[data-page="library"]').click();await page.waitForFunction(()=>libraryRows.length===8);
+ await page.locator('#library-list input[type="checkbox"]').first().check();await page.locator('#batch-preview').click();
+ await page.waitForFunction(()=>!document.getElementById('batch-preview-panel').hidden);
+ assert((await page.locator('#batch-problems').textContent()).length>0);assert(await page.locator('#batch-start').isDisabled());
+ await page.locator('.nav-item[data-page="settings"]').click();await page.locator('#settings-form button[type="submit"]').click();await page.waitForFunction(()=>document.getElementById('notice').textContent.includes('已保存'));
+ await page.locator('.nav-item[data-page="library"]').click();await page.locator('#batch-preview').click();await page.waitForFunction(()=>!document.getElementById('batch-preview-panel').hidden);
+ assert.equal(await page.locator('#batch-problems').count(),1);
+ const cleanup=await page.evaluate(()=>{const input=$('prediction');input.setAttribute('aria-describedby','prediction-summary');showError({message:'test validation',fields:[{field:'prediction',message:'test input error'}]});const created=Boolean($('prediction-error'));clearErrors();clearErrors();return {created,removed:!$('prediction-error'),invalid:input.hasAttribute('aria-invalid'),description:input.getAttribute('aria-describedby'),fixed:Boolean($('batch-problems'))};});
+ assert.deepEqual(cleanup,{created:true,removed:true,invalid:false,description:'prediction-summary',fixed:true});
+ await page.locator('#batch-preview').click();await page.waitForFunction(()=>!document.getElementById('batch-preview-panel').hidden);
+ const first=await page.evaluate(()=>libraryRows.map(x=>x.instance_id));await page.locator('#library-next').click();await page.waitForFunction(()=>libraryRenderedOffset===8);
+ assert(!(await page.evaluate(()=>libraryRows.map(x=>x.instance_id))).some(x=>first.includes(x)));await page.locator('#library-list input[type="checkbox"]').first().check();
+ for(const limit of [16,25,50,8]){await page.locator('#library-limit').selectOption(String(limit));await page.waitForFunction(n=>libraryRows.length===n&&libraryRenderedOffset===0,limit);assert.equal(await page.evaluate(()=>librarySelected.size),2);}
+ await page.locator('#library-limit').selectOption('16');await page.waitForFunction(()=>libraryRows.length===16);await page.reload();await page.waitForFunction(()=>connected&&!initialization&&libraryRows.length===16);assert.equal(await page.locator('#library-limit').inputValue(),'16');assert.equal(await page.evaluate(()=>librarySelected.size),2);
+ await page.locator('#library-limit').selectOption('8');await page.waitForFunction(()=>libraryRows.length===8);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,'library-desktop.png')});
+ await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(out,'library-narrow.png'),fullPage:true});
+ assert.equal(errors.length,0);
+ const result={passed:true,offline_task_then_library:true,settings_save_then_library:true,transient_errors_removed:true,fixed_errors_preserved:true,accessibility_description_preserved:true,default_page_size:8,page_sizes_checked:[8,16,25,50],cross_page_selection_and_reload:true,narrow_layout:true,page_errors:0,model_calls:0,image_downloads:0,production_touched:false};
+ fs.writeFileSync(path.join(out,'browser-check.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
+}finally{await browser.close();}})().catch(e=>{console.error(e.message.replace(/#[A-Za-z0-9_-]{16,}/g,'#[REDACTED]'));process.exitCode=1;});

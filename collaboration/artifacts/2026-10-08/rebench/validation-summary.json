@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-08",
+  "pytest": {
+    "passed": 135,
+    "warnings": 3,
+    "seconds": 148.15
+  },
+  "official_schema": {
+    "checked": 860,
+    "success": 860,
+    "failures": []
+  },
+  "official_data": {
+    "source_sha256": "1497b218db0a8259d22471812f0de12b779c699daf741b930d68bc717636f0bf",
+    "source_bytes": 4864925,
+    "source_revision": "34d5a58864acf91613740a09ec5d205228dcfa39",
+    "catalog_rows": 860,
+    "public_projection_no_answer_fields": true,
+    "single_case_cached_and_reloaded": true,
+    "required_interface_preserved": true,
+    "production_state_modified": false,
+    "image_downloads": 0,
+    "model_calls": 0
+  },
+  "source_api": {
+    "passed": true,
+    "catalog_count": 860,
+    "single_case_cache": true,
+    "required_interfaces_visible": true,
+    "pinned_source_verified": true,
+    "no_answers_in_catalog": true,
+    "source_reads": 2,
+    "source_read_bytes": 9729850,
+    "model_calls": 0,
+    "image_downloads": 0,
+    "production_state_modified": false,
+    "isolated_service_stopped": true
+  },
+  "browser": {
+    "passed": true,
+    "checks": [
+      "four selectors share registry; Verified remains default",
+      "single-case selection clears grants and restores new dataset draft",
+      "library fixed-version preview and changed-dataset grants reset",
+      "experiment import and dataset changes reset preview and grants; 390px layout",
+      "same-ID fixture results remain dataset-filtered",
+      "library draft restored; no tasks, downloads, or model requests"
+    ],
+    "page_errors": [],
+    "submitted_tasks": 0,
+    "model_calls": 0,
+    "downloads": 0,
+    "isolated": true
+  },
+  "mixed_benchmark_browser": {
+    "passed": true,
+    "checks": [
+      "four selectors share registry; Verified remains default",
+      "single-case selection clears grants and restores new dataset draft",
+      "library fixed-version preview and changed-dataset grants reset",
+      "experiment import and dataset changes reset preview and grants; 390px layout",
+      "mixed benchmarks suppress overview rate and comparison bars with dataset guidance",
+      "selecting one fixed benchmark restores its overview rate and case matrix",
+      "same-ID fixture results remain dataset-filtered",
+      "library draft restored; no tasks, downloads, or model requests"
+    ],
+    "page_errors": [],
+    "submitted_tasks": 0,
+    "model_calls": 0,
+    "downloads": 0,
+    "isolated": true,
+    "screenshots": false
+  },
+  "production": {
+    "version": "1.5.0",
+    "source_version": "f0086c15b8d2b1bb",
+    "idle": true,
+    "catalog_count": 860,
+    "page_size": 8,
+    "docker_environment_display": "unknown"
+  },
+  "protected_files": 357,
+  "changed_protected_files": [],
+  "static_js_syntax": "passed",
+  "document_links": "passed",
+  "new_environments": 0,
+  "installed_or_upgraded_packages": 0,
+  "model_calls": 0,
+  "runtime_image_downloads": 0,
+  "real_docker_evaluation": "not_run_docker_engine_unavailable",
+  "real_model_solve": "not_authorized_not_run",
+  "scope": "SWE-rebench classic pinned test split only; SWE-bench Pro and CodeMonkeys excluded",
+  "pip_check": "No broken requirements found."
+}

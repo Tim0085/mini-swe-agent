@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "official_result_summary": true,
+  "test_failure_distinguished": true,
+  "comparison_matrix": true,
+  "keyboard_tabs": true,
+  "model_forms": true,
+  "independent_encrypted_key": true,
+  "probe_preview_only": true,
+  "experiment_preview": true,
+  "diagnostic_execution": true,
+  "completed_experiment_retry": true,
+  "workflow_following": true,
+  "inline_patch_confirmation": true,
+  "narrow_width": 390,
+  "page_errors": [],
+  "external_model_calls": 0,
+  "downloads": 0
+}

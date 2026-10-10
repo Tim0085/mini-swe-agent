@@ -1,0 +1,35 @@
+{
+  "version": "1.6.0",
+  "source_version": "93ba799332d25bf1",
+  "full_pytest": {
+    "passed": 187,
+    "failed": 0,
+    "warnings": 3
+  },
+  "browser_check_groups": 7,
+  "browser_js_errors": 0,
+  "viewports": [
+    1440,
+    390
+  ],
+  "impeccable_used": true,
+  "official_catalog_rows": 642,
+  "official_asset_hashes": 4494,
+  "offline_worker_scenarios": 3,
+  "independent_review_blockers_remaining": 0,
+  "pip_check": "passed",
+  "new_environments": 0,
+  "new_dependencies": 0,
+  "original_files": 341,
+  "unchanged_original_files": 340,
+  "expected_changed_files": [
+    ".local\\webui\\service.json"
+  ],
+  "production_loaded_current_code": true,
+  "production_started_from_stopped_state": true,
+  "model_end_to_end_passed": false,
+  "model_test_limitation": "First authorized request disconnected; no usable response or billing usage. No automatic retry.",
+  "official_image_verifier_passed": true,
+  "baseline_is_model_score": false,
+  "owned_containers_remaining": 0
+}

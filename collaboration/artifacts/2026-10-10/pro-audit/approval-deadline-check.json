@@ -1,0 +1,15 @@
+{
+  "source_version": "93ba799332d25bf1",
+  "check": "manual-approval-does-not-observe-wall-time-deadline",
+  "diagnostic_note": "Direct solve with a shortened 5-second execution snapshot; official dispatch keeps 3000 seconds. Product source is unchanged.",
+  "wall_time_limit_seconds": 5,
+  "waited_at_second_approval_seconds": 7,
+  "worker_still_waiting_past_deadline": true,
+  "before_reply_exit_status": "",
+  "after_reply_exit_status": "TimeExceeded",
+  "partial_captured_after_reply": true,
+  "local_protocol_requests": 2,
+  "external_model_requests": 0,
+  "image_downloads": 0,
+  "process_returncode": 0
+}

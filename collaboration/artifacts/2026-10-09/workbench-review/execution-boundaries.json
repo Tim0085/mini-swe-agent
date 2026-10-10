@@ -1,0 +1,20 @@
+{
+  "paid_calls": 0,
+  "docker_calls": 0,
+  "locked_recovery": {
+    "exception_type": "PermissionError",
+    "winerror": 5,
+    "startup_recovery_completed": false,
+    "disk_status_preserved": "running"
+  },
+  "after_unlock": {
+    "status": "interrupted"
+  },
+  "long_log_line": {
+    "file_bytes": 70031,
+    "scan_count": 3,
+    "read_position": 0,
+    "events": 0,
+    "displayed_stage": "准备评测容器"
+  }
+}

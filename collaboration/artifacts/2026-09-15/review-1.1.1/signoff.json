@@ -1,0 +1,20 @@
+{
+  "app_source_unchanged": true,
+  "code_version": "3fa3e46619bf96fb",
+  "protected_files_unchanged": 11,
+  "pytest_passed": 21,
+  "issues": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 7,
+    "P3": 2
+  },
+  "audit_score": 15,
+  "audit_score_max": 20,
+  "paid_model_calls": 0,
+  "new_dependencies": 0,
+  "production_restarted": false,
+  "isolated_service_exited": true,
+  "docker_engine_probe": "linux",
+  "formal_evaluation_run": false
+}

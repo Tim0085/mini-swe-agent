@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-09",
+  "external_model_calls": 0,
+  "downloads": 0,
+  "new_dependencies": 0,
+  "page_errors": [],
+  "checks": [
+    "xhigh: API create → browser name-only save preserves all parameters",
+    "unsupported saved reasoning: editor-state preservation verified without saving invalid server enum",
+    "offline dataset switch clears stale rows and selection; page selection disabled; local retry available",
+    "offline dataset switch recovers through actual HTTP retry",
+    "experiment error visible by bottom submit at 1440px with accessible alert and field locator",
+    "experiment error visible by bottom submit at 390px with accessible alert and field locator",
+    "comparison difference selection distinguishes protocol/reasoning; full conditions accessible in collapsed details",
+    "storage background scan completes; refresh preserves selected item, cleanup preview and confirmation (no deletion)",
+    "real HTTP delayed A retry response does not overwrite selected completed B; stage retry label and attempt status shown",
+    "benchmark-neutral task entry and collapsed dataset version/license information",
+    "navigation followed by request failure remains visible on destination page",
+    "same-dataset pagination keeps document height during loading; desktop scroll displacement 0px",
+    "storage rescan completion confirmed by changed scanned_at and terminal status; selection and exact cleanup preview retained",
+    "inline exact-patch evaluation missing-authorization feedback visible at 1440px; no evaluation submitted",
+    "inline exact-patch evaluation missing-authorization feedback visible at 390px; no evaluation submitted"
+  ],
+  "screenshots": [
+    "library-offline-desktop.png",
+    "experiment-local-error-1440.png",
+    "profile-local-error-1440.png",
+    "comparison-conditions-1440.png",
+    "experiment-local-error-390.png",
+    "profile-local-error-390.png",
+    "comparison-conditions-390.png",
+    "storage-progressive-desktop.png",
+    "storage-completed-desktop.png",
+    "inline-evaluation-local-error-1440.png",
+    "inline-evaluation-local-error-390.png",
+    "comparison-condition-detail-390.png"
+  ],
+  "passed": true,
+  "test_harness_notes": [
+    "Initial checked-input helper was corrected to allow zero selected models.",
+    "Diagnostic failure occurs during download; retry test follows that actual stage.",
+    "Async queue wait uses explicit repeated read-only HTTP status checks."
+  ]
+}

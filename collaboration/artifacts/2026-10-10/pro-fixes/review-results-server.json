@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-10",
+  "reviewer": "pro_audit_selection",
+  "scope": ["results.py F4/F6", "server.py effective limits and evaluation timeout", "server.py approval expiry"],
+  "excluded_own_implementation": ["pro_data.py", "bench.py public cache changes", "vendor/pro/public-manifest.json"],
+  "baseline": ".local/webui/pro-fixes-20261010/source-before",
+  "findings": [
+    {
+      "severity": "P1",
+      "location": "local_setup/webui/results.py:235",
+      "title": "Evaluation-only history inherited unrelated current CLI solve limits",
+      "trigger": "Repeated evaluations of the same old patch with no original solver profile; CLI cost limit changes from 3 to 20",
+      "observed_before_fix": {"groups": 2, "denominator": 2, "incorrect_configured_limits": [3, 20]},
+      "baseline_behavior": {"groups": 1, "denominator": 1, "limits": null},
+      "fix": "Do not use evaluation request.settings as solver configured limits when a solver snapshot is absent",
+      "independent_retest": {"groups": 1, "denominator": 1, "configured_limits_unknown": true, "effective_limits_unknown": true},
+      "status": "fixed_and_independently_verified"
+    }
+  ],
+  "open_findings": [],
+  "checks": [
+    "Compared changes against the saved pre-implementation sources",
+    "Independent old-patch reevaluation reproduction now preserves one group and one denominator",
+    "Three selected profiles by three cases remain three model columns and three cases per model",
+    "Different effective budgets remain visible per cell without expanding experiment model columns",
+    "Failed partial attempt remains solve_failed with unknown cost; pending effective limits remain unknown",
+    "Input snapshots and source records were unchanged by result aggregation",
+    "Server records the post-budget-clamp limits and records evaluation timeout independently",
+    "Expired and wrong approval tickets do not execute commands or steal the next approval"
+  ],
+  "executed_tests": {"test_approval_deadline.py": {"passed": 4, "failed": 0, "existing_dependency_warnings": 2}},
+  "independent_scripts": [
+    ".local/webui/pro-fixes-20261010/review/check_result_limits.py",
+    ".local/webui/pro-fixes-20261010/review/check_results_matrix.py"
+  ],
+  "raw_evidence": [
+    ".local/webui/pro-fixes-20261010/review/orphan-limits.json",
+    ".local/webui/pro-fixes-20261010/review/matrix-review.json"
+  ],
+  "product_source_edited_by_reviewer": false,
+  "paid_model_calls": 0,
+  "external_requests": 0,
+  "image_downloads": 0,
+  "production_service_operations": 0
+}

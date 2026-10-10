@@ -1,0 +1,15 @@
+{
+  "protected_count": 341,
+  "changed": [],
+  "real_history_tasks": 69,
+  "rebench_trial": {
+    "solve_id": "20261008-170946-1e688506",
+    "status": "passed",
+    "repair": 4,
+    "regression": 694,
+    "calls": 11,
+    "estimated_cost": 0.232104,
+    "evaluation_attempts": 2
+  },
+  "new_paid_calls": 0
+}

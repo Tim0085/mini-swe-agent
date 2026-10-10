@@ -1,0 +1,22 @@
+{
+  "check": "pro-timeout-through-real-manager-pump-and-queue-consumption",
+  "source_version": "2087c29f40e6c1a2",
+  "diagnostic_seconds": 5,
+  "official_seconds": 3000,
+  "shortened_snapshot_only_in_isolated_direct_solve": true,
+  "expired_without_second_reply": true,
+  "old_ticket_rejected": true,
+  "expired_ticket_rejected": true,
+  "pending_cleared": true,
+  "worker_status": "completed",
+  "exit_status": "TimeExceeded",
+  "partial_patch_captured": true,
+  "auto_evaluate_uses_this_partial_prediction": true,
+  "billing_known": true,
+  "next_stage": "evaluate",
+  "evaluator_dispatched": false,
+  "self_owned_containers_cleaned": true,
+  "local_protocol_requests": 2,
+  "external_model_requests": 0,
+  "image_downloads": 0
+}

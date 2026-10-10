@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-15",
+  "scope": "read-only functional audit; independent headless Edge and in-memory samples",
+  "source_fingerprint_sha256": "7820616176719fa1368c958bbb4b44ed99755250948634257b6a1148c40201b6",
+  "api_mutation_requests": [],
+  "paid_model_calls": 0,
+  "tasks_started_or_stopped": 0,
+  "services_restarted": 0,
+  "browser_findings": {
+    "per_run_auto_approval_persists": true,
+    "per_run_download_permission_persists": true,
+    "task_draft_empty_after_reload": true,
+    "project_directory_reset_after_reload": true,
+    "unsaved_settings_discarded_after_navigation": true,
+    "exit_buttons": 0,
+    "failed_evaluation_download_link_visible": true,
+    "failed_evaluation_download_status": 404,
+    "connection_label_after_offline_and_failed_request": "已连接 · 本机",
+    "network_error_text": "Failed to fetch",
+    "historical_task_switch_attempts": 8,
+    "historical_task_switch_wrong_final_selection": 4,
+    "tab_arrow_right_did_not_switch": true,
+    "tabs_count": 6,
+    "tabs_with_aria_controls": 0,
+    "run_status_aria_live": null,
+    "placeholder_contrast_ratio": 3.4706132116042334,
+    "narrow_viewport_width": 390,
+    "narrow_nav_font_px": 10,
+    "narrow_nav_target_height_px": 33,
+    "narrow_horizontal_overflow": false
+  },
+  "in_memory_findings": {
+    "redaction_changes_synthetic_patch": true,
+    "single_quote_url_accepted_by_settings": true,
+    "single_quote_url_env_roundtrip_matches": false,
+    "edited_env_line_preserves_crlf": false
+  },
+  "current_environment_qualifications": {
+    "legacy_plaintext_key_present": false,
+    "docker_and_live_model_retested": false
+  },
+  "issues": {"P0": 0, "P1": 8, "P2": 8, "P3": 0},
+  "ui_score_only": {"accessibility": 2, "performance": 2, "responsive": 3, "theming": 3, "anti_patterns": 4, "total": 14}
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "cached problem rechecked on refresh without new prepare task",
+    "two window conflict merges chosen edits without losing other new values",
+    "1600 message history is paged and new arrivals do not disturb reading",
+    "real offline edit offers inline new-file content preview",
+    "storage includes other files and all disclosure targets are touch sized"
+  ],
+  "pageErrors": [],
+  "modelCalls": 0,
+  "productionTouched": false
+}

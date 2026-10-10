@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mini 工作台</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/results.css">
+  <script src="/static/workbench.js" defer></script>
+  <script src="/static/library.js" defer></script>
+  <script src="/static/instance-picker.js" defer></script>
+  <script src="/static/profiles.js" defer></script>
+  <script src="/static/comparison-models.js" defer></script>
+  <script src="/static/evaluations.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主内容</a>
+  <aside class="sidebar">
+    <a class="brand" href="#" id="brand"><span class="brand-mark">m<span>·</span></span><span>Mini 工作台<small>你的本地编程助手</small></span></a>
+    <nav aria-label="主导航">
+      <button class="nav-item selected" data-page="new"><span>＋</span> 新建任务</button>
+      <button class="nav-item" data-page="library"><span>▦</span> 实例库</button>
+      <button class="nav-item" data-page="results"><span>▥</span> 评测中心</button>
+      <button class="nav-item" data-page="history"><span>◷</span> 历史记录</button>
+      <button class="nav-item" data-page="settings"><span>☷</span> 模型与设置</button>
+      <button class="nav-item" data-page="storage"><span>▱</span> 存储管理</button>
+    </nav>
+    <div class="recent-heading">最近任务 <span id="run-count">0</span></div>
+    <div id="recent" class="recent"></div>
+    <div class="sidebar-bottom"><button id="exit-workbench" class="secondary">退出工作台</button><small><span class="dot"></span> 关闭网页不会停止后台任务</small></div>
+  </aside>
+  <main id="main-content" tabindex="-1">
+    <header class="topbar"><span id="breadcrumb">工作区 / 新建任务</span><div class="service-controls"><span class="connection" id="connection" role="status" aria-live="polite">正在连接…</span><button id="reconnect" class="text-button">重新连接</button><button id="restart-workbench" class="text-button">重启服务</button></div></header>
+    <div id="service-notice" class="notice" role="status" hidden></div>
+    <section id="lifecycle-panel" class="lifecycle-panel" aria-labelledby="lifecycle-title" hidden><h2 id="lifecycle-title">退出工作台</h2><p id="lifecycle-explanation"></p><div class="form-actions"><button id="lifecycle-stop" class="primary">停止任务并退出</button><button id="lifecycle-wait" class="secondary">任务结束后退出</button><button id="lifecycle-keep" class="secondary">保留后台运行</button><button id="lifecycle-pending" class="secondary danger" hidden>保留待清理清单并退出后台</button></div><p id="lifecycle-progress" role="status" aria-live="polite"></p></section>
+    <div id="notice" role="status" class="notice" hidden></div>
+    <section id="page-new" class="page">
+      <div class="page-heading"><h1>开始一项新任务</h1><p>选择项目，描述目标。每一步操作都清楚可见。</p></div>
+      <div class="tabs" role="tablist" aria-label="任务类型">
+        <button role="tab" aria-selected="true" data-kind="local">编程任务</button>
+        <button role="tab" aria-selected="false" data-kind="swebench">基准题目求解</button>
+        <button role="tab" aria-selected="false" data-kind="evaluate">评测已有补丁</button>
+      </div>
+      <form id="task-form">
+        <div id="pending-submit" class="notice" hidden><p>上次提交的响应未确认。先核对任务，避免重复运行。</p><button type="button" id="resolve-submit" class="secondary">核对上次提交</button><button type="button" id="retry-submit" class="secondary" hidden>使用原编号重试提交</button></div>
+        <div id="local-fields">
+          <label for="cwd">项目目录</label><input id="cwd" placeholder="例如 F:\my-project" required autocomplete="off">
+          <p class="help">命令将在这个目录执行；目录选择不会限制文件访问范围。</p>
+          <details id="folder-browser"><summary>浏览文件夹</summary><div class="folder-toolbar"><button type="button" id="folder-up" class="text-button">↑ 上一级</button><span id="folder-path"></span><button type="button" id="folder-select" class="secondary">使用此目录</button></div><div id="folder-list"></div></details>
+          <label for="task">任务描述</label><textarea id="task" rows="7" placeholder="你想完成什么？例如：先检查项目结构，说明实现思路，再根据确认的方案修改。"></textarea>
+          <p class="help" id="draft-status">非敏感草稿自动保存在本机；一次性执行授权不会保存。</p><button type="button" id="clear-draft" class="text-button">清空当前草稿</button>
+        </div>
+        <div id="bench-fields" hidden>
+          <div class="form-row"><div><label for="dataset">数据集</label><select id="dataset" aria-describedby="dataset-note"><option value="verified">SWE-bench Verified</option><option value="lite">SWE-bench Lite</option></select></div>
+          <div><label for="instance">选择题目</label><div id="instance-picker" class="instance-picker"><div class="instance-input"><input id="instance" value="django__django-10097" autocomplete="off" placeholder="搜索题号、仓库或题目关键词" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="instance-options" aria-describedby="instance-hint"><button id="instance-toggle" type="button" class="secondary" aria-label="展开题目选项" aria-controls="instance-options" aria-expanded="false">⌄</button></div><div id="instance-popup" class="instance-popup" hidden><p id="instance-option-status" class="help" role="status"></p><div id="instance-options" role="listbox" aria-label="匹配题目"></div><button id="instance-library" type="button" class="text-button">前往实例库浏览或同步目录 →</button></div></div><p id="instance-hint" class="help">输入关键词后点选题目，自动填入完整 ID；也可直接粘贴题号。</p></div></div><div id="dataset-note" class="help"></div>
+          <label class="check"><input type="checkbox" id="downloads"> 允许下载缺失的题目资料</label>
+          <label class="check"><input type="checkbox" id="image-downloads"> 允许下载缺失的官方运行镜像</label>
+          <p class="help">优先复用缓存。新镜像可能占用数 GB，未缓存时无法提前准确估算。</p>
+          <button type="button" id="preview" class="secondary">加载题目</button>
+          <p id="cache-status" class="help" role="status">填写题号后会检查本机缓存，不会自动下载。</p>
+          <div id="problem" class="problem" hidden></div>
+        </div>
+        <div id="prediction-fields" hidden><label for="prediction-list">选择本题补丁</label><select id="prediction-list" aria-describedby="prediction-summary"><option value="">正在检查本题已有补丁…</option></select><p id="prediction-summary" class="help" role="status"></p><details><summary>手动填写其他文件路径</summary><label for="prediction">轨迹或预测文件路径</label><input id="prediction" placeholder="粘贴 .traj.json / .jsonl 的完整路径"><button type="button" id="inspect-prediction" class="secondary">检查这个文件</button></details><details id="prediction-excluded"><summary>未列为可选补丁的文件</summary><div id="prediction-reasons" class="help"></div></details><p class="help">预测文件用于评测，轨迹文件还保存生成过程。同内容文件合并显示；有补丁不等于评测通过。评测不会调用模型。</p></div>
+        <div class="run-options"><div><label class="field-caption" for="task-profile">本次模型档案</label><select id="task-profile"><option value="">原配置</option></select><strong id="model-summary">正在读取…</strong></div><div><span class="field-caption">运行限制</span><span id="limits-summary">—</span></div><button type="button" class="text-button" data-page="settings">管理模型 ↗</button></div>
+        <label class="check" id="auto-evaluate-row" hidden><input type="checkbox" id="task-auto-evaluate" checked><span id="task-auto-evaluate-label">成功提交后自动评测</span></label>
+        <label class="check" id="auto-row"><input type="checkbox" id="auto"> 本次自动执行命令，不逐条确认</label>
+        <div class="form-actions"><button type="submit" id="start" class="primary">开始任务 <span>→</span></button><button type="button" id="offline" class="text-button">先做离线连接检查</button><span class="help" id="billing">点击开始后会调用模型，费用以服务商账单为准。</span></div>
+      </form>
+      <div class="workspace-note"><div><strong>从想法到结果，留下一条清晰的记录。</strong><p>任务过程、命令输出和提交结果会自动保存在本机。关闭页面后，运行中的任务仍会继续。</p></div></div>
+    </section>
+    <section id="page-library" class="page" hidden>
+      <div class="page-heading"><h1>实例库</h1><p>浏览题目、准备环境，再按顺序求解或评测。</p></div>
+      <div class="library-filters"><div><label for="library-dataset">数据集</label><select id="library-dataset" aria-describedby="library-dataset-note"><option value="verified">SWE-bench Verified</option><option value="lite">SWE-bench Lite</option></select></div><div><label for="library-search">搜索题目</label><input id="library-search" placeholder="题号、仓库或关键词"></div><button id="library-query" class="secondary">搜索</button><button id="library-sync" class="secondary">同步题目目录</button></div>
+      <div id="library-dataset-note" class="help"></div>
+      <p id="library-sync-note" class="help" role="status">首次使用请同步目录；只保存题目信息，不下载运行镜像。</p>
+      <div class="library-filters"><div><label for="library-cache">题目缓存</label><select id="library-cache"><option value="all">全部</option><option value="yes">已缓存</option><option value="no">未缓存</option></select></div><div><label for="library-environment">运行环境</label><select id="library-environment"><option value="all">全部</option><option value="cached">已下载</option><option value="missing">未下载</option><option value="unknown">无法检查</option></select></div><div><label for="library-patch">已有补丁</label><select id="library-patch"><option value="all">全部</option><option value="yes">有补丁</option><option value="no">无补丁</option></select></div><div><label for="library-result">最近评测</label><select id="library-result"><option value="all">全部</option><option value="passed">通过</option><option value="test_failed">测试未通过</option><option value="infrastructure">疑似环境失败</option><option value="ambiguous">原因不明确</option><option value="incomplete">异常或未完成</option><option value="none">尚无结果</option></select></div></div>
+      <div id="library-selection-tools" class="form-actions"><button id="library-configure" class="primary">配置所选题目 →</button><button id="library-select-page" class="text-button">选择本页</button><button id="library-clear" class="text-button">清空选择</button><span id="library-selection" class="help" role="status">已选 0 / 50 题</span><label for="library-limit">每页显示</label><select id="library-limit"><option value="8">8 题</option><option value="16">16 题</option><option value="25">25 题</option><option value="50">50 题</option></select></div>
+      <div id="library-list"></div><div class="form-actions"><button id="library-prev" class="secondary">上一页</button><span id="library-page" class="help"></span><button id="library-next" class="secondary">下一页</button></div>
+      <section id="library-detail" class="result-panel" hidden><button id="library-detail-close" class="text-button">收起详情</button><h2 id="library-detail-title"></h2><button id="library-copy-id" type="button" class="text-button">复制完整题号</button><p id="library-copy-status" class="help" role="status"></p><pre id="library-description" class="output"></pre><div id="library-detail-patches"></div><div id="library-detail-history" class="artifact-actions"></div></section>
+      <section class="section-gap"><h2>创建顺序队列</h2><div class="library-filters"><div><label for="batch-operation">本批操作</label><select id="batch-operation"><option value="cache">仅缓存题目</option><option value="download">下载运行环境</option><option value="solve">求解题目</option><option value="evaluate">评测已有补丁</option></select></div><div id="batch-budget-row" hidden><label for="batch-budget">本批估算费用上限（美元）</label><input id="batch-budget" type="number" min="0.01" max="50000" step="0.01" value="3"></div></div>
+      <label class="check"><input id="batch-data" type="checkbox">允许下载所选题目缺失的资料</label><label class="check" id="batch-image-row"><input id="batch-image" type="checkbox">允许下载所选题目缺失的官方镜像</label>
+      <div id="batch-solve-options" hidden><label for="batch-profile">本批模型档案</label><select id="batch-profile"><option value="">原配置</option></select><label class="check"><input id="batch-auto-eval" type="checkbox" checked><span id="batch-auto-eval-label">成功提交后自动评测</span></label><label class="check"><input id="batch-auto-approve" type="checkbox">本批自动执行求解命令，不逐条确认</label><p class="help">费用按所选模型计价估算，不等于账单；单次请求可能超限。计价不可用时暂停。默认仍需批准每批命令。</p></div>
+      <p id="batch-operation-note" class="help">缓存题目不调用模型，也不下载运行镜像。</p><div class="form-actions"><button id="batch-preview" class="primary">检查所选题目</button><button id="batch-resolve" class="secondary" hidden>核对上次队列提交</button></div>
+      <div id="batch-preview-panel" class="result-panel" hidden><h2>开始前核对</h2><p id="batch-summary"></p><div id="batch-preview-items"></div><p id="batch-problems" class="field-error"></p><label class="check"><input id="batch-ack" type="checkbox">我已核对题目、操作、下载授权和本批费用限制</label><button id="batch-start" class="primary">确认并开始队列</button></div></section>
+      <section id="queue-panel" class="section-gap" hidden><h2>顺序队列</h2><p id="queue-summary" role="status"></p><p id="queue-reason" class="help"></p><div id="queue-config" class="result-panel" hidden><p id="queue-config-text"></p><label class="check"><input id="queue-config-ack" type="checkbox">将当前设置用于剩余任务，保留本批原费用总上限</label></div><div class="form-actions"><button id="queue-pause" class="secondary">当前题结束后暂停</button><button id="queue-stop" class="secondary">停止当前题并暂停</button><button id="queue-resume" class="primary">继续剩余步骤</button><button id="queue-finish" class="text-button danger">结束批次</button></div><div id="queue-items"></div></section>
+      <section class="section-gap"><h2>批次记录</h2><div id="queue-history"></div></section>
+    </section>
+    <section id="page-settings" class="page" hidden>
+      <div class="page-heading"><h1>模型与设置</h1><p>保存后用于新任务。正在运行的任务使用启动时的设置。</p></div>
+      <section id="model-management" aria-labelledby="model-management-title">
+        <div class="section-heading"><h2 id="model-management-title">我的模型</h2><button id="profiles-refresh" class="text-button">刷新模型配置</button></div>
+        <p class="help">一个服务连接可配置多个模型。切换网页默认模型不会修改原来的命令行配置。</p>
+        <div id="profiles-list" class="profile-list" aria-live="polite"></div>
+        <div class="form-actions"><button id="profile-new" class="primary">添加模型档案</button><button id="connection-new" class="secondary">添加服务连接</button></div>
+        <details class="section-gap" id="connection-directory"><summary>服务连接</summary><div id="connections-list"></div></details>
+        <form id="connection-form" class="editor-panel" hidden>
+          <div class="section-heading"><h2 id="connection-editor-title">添加服务连接</h2><button type="button" id="connection-close" class="text-button">收起</button></div>
+          <div class="form-row"><div><label for="connection-preset">服务模板</label><select id="connection-preset"><option value="custom">自定义 OpenAI 兼容服务</option></select></div><div><label for="connection-name">连接名称</label><input id="connection-name" required maxlength="100" placeholder="例如：我的中转服务"></div></div>
+          <label for="connection-base">API Base URL</label><input id="connection-base" type="url" required placeholder="https://example.com/v1"><p class="help">填写服务商给出的完整地址；同名模型也可能有不同价格和可用能力。</p>
+          <div class="form-actions"><button type="submit" class="primary">保存连接</button><button type="button" id="connection-models" class="secondary" hidden>获取可用模型列表</button><button type="button" id="connection-disable" class="text-button danger" hidden>停用连接</button></div><p id="connection-message" class="help" role="status"></p>
+          <div id="connection-model-list" class="model-id-list" hidden></div>
+        </form>
+        <form id="connection-key-form" class="editor-panel" hidden><h2>该连接的 API 密钥</h2><p id="connection-key-state" class="help"></p><label for="connection-key">新密钥</label><div class="form-row"><input id="connection-key" type="password" autocomplete="new-password" required placeholder="仅在添加或替换时填写"><button type="submit" class="secondary">加密保存密钥</button></div><p class="help">密钥由当前 Windows 用户加密保存；不会显示已有值，也不存入网页草稿。</p></form>
+        <form id="profile-form" class="editor-panel" hidden>
+          <div class="section-heading"><h2 id="profile-editor-title">添加模型档案</h2><button type="button" id="profile-close" class="text-button">收起</button></div>
+          <div class="form-row"><div><label for="profile-name">显示名称</label><input id="profile-name" required maxlength="100" placeholder="例如：DeepSeek · 日常编程"></div><div><label for="profile-connection">服务连接</label><select id="profile-connection" required></select></div></div>
+          <label for="profile-model">服务商模型 ID</label><input id="profile-model" required list="profile-model-options" placeholder="填写服务商实际提供的模型 ID"><datalist id="profile-model-options"></datalist>
+          <label for="profile-protocol">调用协议</label><select id="profile-protocol"><option value="chat">OpenAI Chat Completions</option><option value="responses">OpenAI Responses</option></select>
+          <details><summary>生成参数与单题限制</summary><p class="help">留空使用服务默认值。填写的参数会记录在任务中；不支持时明确报错。</p><div class="form-row three"><div><label for="profile-temperature">Temperature</label><input id="profile-temperature" type="number" min="0" max="2" step="0.1"></div><div><label for="profile-output">最大输出 token</label><input id="profile-output" type="number" min="1" step="1"></div><div><label for="profile-reasoning">Reasoning effort</label><select id="profile-reasoning"><option value="">服务默认</option><option value="none">none</option><option value="minimal">minimal</option><option value="low">low</option><option value="medium">medium</option><option value="high">high</option><option value="xhigh">xhigh</option></select><p id="profile-reasoning-note" class="help" hidden></p></div></div><div class="form-row three"><div><label for="profile-steps">最大步数</label><input id="profile-steps" type="number" min="1" max="1000" required></div><div><label for="profile-cost">每题费用上限（美元）</label><input id="profile-cost" type="number" min="0.01" max="1000" step="0.01" required></div><div><label for="profile-timeout">模型／命令超时（秒）</label><input id="profile-timeout" type="number" min="5" max="3600" required></div></div></details>
+          <details><summary>其他服务参数（高级）</summary><label for="profile-top-p">Top P</label><input id="profile-top-p" type="number" min="0" max="1" step="0.01" placeholder="留空使用服务默认值"><label for="profile-extra">额外服务参数（JSON 对象）</label><textarea id="profile-extra" rows="3" placeholder='例如：{"enable_thinking":true}'></textarea><p class="help">只填写服务商明确支持的额外参数。不要填写密钥、模型名或接口地址；不支持的参数会报错。</p></details>
+          <label for="profile-pricing">价格来源</label><select id="profile-pricing"><option value="builtin">内置价格（未知时暂停）</option><option value="custom">手动填写该服务价格</option><option value="free">明确免费</option></select><div id="profile-prices" class="form-row three" hidden><div><label for="profile-input-price">输入 / 百万 token（美元）</label><input id="profile-input-price" type="number" min="0" step="any"></div><div><label for="profile-output-price">输出 / 百万 token（美元）</label><input id="profile-output-price" type="number" min="0" step="any"></div><div><label for="profile-cache-price">缓存输入 / 百万 token（可选）</label><input id="profile-cache-price" type="number" min="0" step="any"></div></div>
+          <p class="help">费用是估算，不等于账单。未知用量或价格不会当成零费用。</p><div class="form-actions"><button type="submit" class="primary">保存模型档案</button><button type="button" id="profile-disable" class="text-button danger" hidden>停用档案</button><span class="help">保存不调用模型。</span></div>
+        </form>
+        <section id="profile-test-panel" class="editor-panel" hidden><h2>验证工具调用</h2><p id="profile-test-description"></p><p class="help">最多 2 次生成请求，每次最多 256 个输出 token，可能产生少量费用。不会执行模型返回的命令，也不会自动重试。</p><label class="check"><input id="profile-test-ack" type="checkbox" aria-describedby="profile-test-result">允许对这个模型发起上述付费验证</label><div class="form-actions"><button id="profile-test-start" class="primary">确认并验证</button><button id="profile-test-retry" class="primary" hidden>重新验证</button><button id="profile-test-check" class="secondary" hidden>查询上次结果</button><button id="profile-test-close" class="secondary">取消</button></div><p id="profile-test-result" class="help" role="status" aria-live="polite"></p><p id="profile-test-elapsed" class="help"></p><div id="profile-test-recovery" hidden><p class="help">结束等待会阻止迟到的本次提交，但不能取消服务商已经收到的请求。请核对服务商记录；重新验证需要再次确认费用。</p><label class="check"><input id="profile-test-end-ack" type="checkbox" aria-describedby="profile-test-result">我了解上述说明，结束本次等待</label><button id="profile-test-end" class="secondary">结束本次等待</button></div></section>
+      </section>
+      <details id="legacy-settings" class="section-gap"><summary>原配置、公共运行限制与恢复备份</summary><p class="help">这里保留命令行原配置。修改步数、费用和超时会影响后续任务的公共限制。</p>
+      <form id="settings-form" class="settings-form">
+        <div id="config-issues" class="notice" hidden></div>
+        <div id="settings-conflict" class="result-panel" hidden><h2>其他窗口已修改配置</h2><p>你的编辑仍保留。选择冲突字段要保留的值，合并到最新版本后，再点击保存。</p><div id="settings-conflict-fields"></div><button id="merge-settings" type="button" class="secondary">合并到最新版本，保留未保存编辑</button></div>
+        <h2>模型连接</h2><label for="model-name">模型名称</label><input id="model-name" required>
+        <label for="api-base">接口地址</label><input id="api-base" type="url" required><p class="help">使用服务商提供的完整 API Base URL，常见地址以 /v1 结尾。</p>
+        <label for="model-class">接口类型</label><select id="model-class"><option value="litellm">OpenAI Chat Completions</option><option value="litellm_response">OpenAI Responses</option></select>
+        <h2>运行限制</h2><div class="form-row three"><div><label for="step-limit">最大步数</label><input id="step-limit" type="number" min="1" max="1000" required></div><div><label for="cost-limit">估算费用上限（美元）</label><input id="cost-limit" type="number" min="0.01" max="1000" step="0.01" required></div><div><label for="timeout">模型／命令超时（秒）</label><input id="timeout" type="number" min="5" max="3600" required></div></div>
+        <p class="help">费用在请求之间检查，可能超出设定阈值；估算不等同于服务商实际账单。</p>
+        <div class="form-actions"><button class="primary" type="submit">保存设置</button><button id="discard-settings" type="button" class="secondary">放弃未保存修改</button><button id="repair-config" type="button" class="secondary" hidden>备份并重建配置</button><span class="help">保存不会调用模型。</span></div>
+      </form>
+      <form id="key-form" class="key-form"><h2>API 密钥 <span id="key-status" class="pill">读取中</span></h2><p class="help">由当前 Windows 用户加密保存，不显示已有密钥。</p><label for="api-key">新密钥</label><div class="form-row"><input id="api-key" type="password" autocomplete="new-password" placeholder="仅在需要替换时填写" required><button class="secondary" type="submit">加密保存密钥</button></div></form>
+      <section class="section-gap"><h2>恢复配置备份</h2><p class="help">恢复前会再次备份当前配置。密钥不会从此列表回退，替换密钥请使用上方表单。</p><div class="form-row"><select id="backup-list" aria-label="选择配置备份"></select><button id="restore-config" class="secondary">恢复所选备份</button></div></section>
+      </details>
+    </section>
+    <section id="page-results" class="page results-page" hidden>
+      <div class="page-heading results-heading"><div><h1>评测中心</h1><p>看清每次修复，也看清模型之间的差异。</p></div><button id="experiment-new" class="primary">建立同题实验</button></div>
+      <div class="tabs" role="tablist" aria-label="评测中心"><button data-results-tab="overview" role="tab" aria-selected="true">结果总览</button><button data-results-tab="compare" role="tab" aria-selected="false">模型对比</button><button data-results-tab="experiments" role="tab" aria-selected="false">实验记录</button></div>
+      <div class="library-filters"><div><label for="results-dataset">数据集</label><select id="results-dataset" aria-describedby="results-dataset-note"><option value="">全部数据集</option><option value="verified">Verified</option><option value="lite">Lite</option></select></div><button id="results-refresh" class="secondary">刷新结果</button><button id="results-export-csv" class="text-button">导出 CSV</button><button id="results-export-json" class="text-button">导出 JSON</button></div>
+      <div id="results-dataset-note" class="help"></div>
+      <p id="results-loading" class="help" role="status"></p>
+      <section id="results-overview"><div id="results-summary" class="metric-strip"></div><p id="results-note" class="help">历史解决率按模型、条件与题目去重，不代表完整数据集成绩。</p><details class="result-coverage"><summary>各模型的题目覆盖与运行条件</summary><div id="results-groups"></div></details><div class="section-heading section-gap"><h2>题目结果</h2><span class="help">展开查看关键测试和运行记录</span></div><div id="results-items"></div></section>
+      <section id="results-compare" hidden>
+        <div class="compare-config"><div class="compare-source"><label for="compare-experiment">比较范围</label><select id="compare-experiment"><option value="">历史共同题集</option></select></div><details id="compare-models" class="compare-picker"><summary>选择对比模型 <span id="compare-selection-count"></span></summary><div class="compare-picker-intro"><p>相同模型合并展示。每个模型选择一种运行条件参与比较，历史成绩不会被混算。</p><label for="compare-model-search">查找模型</label><input id="compare-model-search" type="search" placeholder="输入模型或连接名称"></div><fieldset><legend class="visually-hidden">选择模型及其运行条件</legend><div id="compare-model-options"></div><p id="compare-model-empty" class="help" hidden>没有匹配的模型。可以修改搜索词或切换数据集。</p></fieldset><button id="compare-update" class="secondary">应用选择</button></details></div>
+        <p id="compare-feedback" role="status" aria-live="polite" hidden></p>
+        <div id="compare-content">
+          <div class="compare-heading"><div><h2>同一题集上的表现</h2><p id="compare-scope"></p></div><span class="result-badge is-neutral" id="compare-mode">历史对比</span></div>
+          <p id="compare-insight" class="compare-insight"></p>
+          <div id="compare-bars" class="comparison-bars"></div>
+          <section class="compare-section"><div class="section-heading"><h2>逐题对照</h2><span class="help">点击结果，展开该题的测试明细</span></div><div class="matrix-legend"><span class="is-passed">已解决</span><span class="is-failed">未解决</span><span>待评测 / 异常 / 缺测</span></div><div id="compare-matrix" class="table-scroll" tabindex="0" role="region" aria-label="模型逐题结果矩阵"></div></section>
+          <section id="compare-detail" class="comparison-detail" hidden tabindex="-1"><div class="section-heading"><h2 id="compare-detail-title"></h2><button id="compare-detail-close" class="text-button">收起明细</button></div><div id="compare-detail-items"></div></section>
+          <section class="compare-section"><h2>费用与时间</h2><p class="help">比较样本与全部尝试分别统计；未知值不按零计算。</p><div id="compare-costs" class="table-scroll" tabindex="0" role="region" aria-label="模型费用与耗时"></div></section>
+          <details class="compare-method"><summary>统计口径与执行条件</summary><p id="compare-note" class="help"></p><div id="compare-conditions"></div></details>
+        </div>
+      </section>
+      <section id="results-experiments" hidden><p class="help">首轮结果保留；重试单独记录。所有模型顺序执行，不共享补丁或对话。</p><div id="experiment-list"></div><section id="experiment-detail" class="section-gap" hidden><h2 id="experiment-title"></h2><p id="experiment-summary" role="status"></p><p id="experiment-reason" class="help"></p><div id="experiment-controls" class="form-actions"></div><div id="experiment-items"></div></section></section>
+      <section id="experiment-editor" class="editor-panel" hidden><div class="section-heading"><h2>建立同题实验</h2><button id="experiment-close" class="text-button">收起</button></div><form id="experiment-form"><div class="form-row"><div><label for="experiment-name">实验名称</label><input id="experiment-name" placeholder="例如：Django 小样本对比" maxlength="100"></div><div><label for="experiment-dataset">数据集</label><select id="experiment-dataset" aria-describedby="experiment-dataset-note"><option value="verified">Verified</option><option value="lite">Lite</option></select></div></div><div id="experiment-dataset-note" class="help"></div><label for="experiment-instances">选定题目</label><textarea id="experiment-instances" rows="3" placeholder="从实例库选择后带入，或每行粘贴一个实例 ID" required></textarea><p class="help">一个数据集、固定题集。最多 5 个模型，模型数 × 题目数不超过 50。</p><div class="form-actions"><button type="button" id="experiment-use-selection" class="secondary">使用实例库已选题目</button><button type="button" class="text-button" data-page="library">去实例库选择 →</button></div><fieldset><legend>选择模型档案</legend><div id="experiment-models" class="model-check-list" tabindex="-1"></div></fieldset><div class="form-row three"><div><label for="experiment-steps">统一最大步数</label><input id="experiment-steps" type="number" min="1" max="1000" required></div><div><label for="experiment-cost">每题费用上限（美元）</label><input id="experiment-cost" type="number" min="0.01" max="1000" step="0.01" required></div><div><label for="experiment-timeout">模型／命令超时（秒）</label><input id="experiment-timeout" type="number" min="5" max="3600" required></div></div><label for="experiment-budget">整个实验的估算费用上限（美元）</label><input id="experiment-budget" type="number" min="0.01" max="50000" step="0.01" required><label class="check"><input id="experiment-auto-evaluate" type="checkbox" checked><span id="experiment-auto-evaluate-label">成功提交后自动评测</span></label><label class="check"><input id="experiment-data" type="checkbox">允许下载缺失题目资料</label><label class="check"><input id="experiment-images" type="checkbox">允许下载缺失官方镜像</label><label class="check"><input id="experiment-auto" type="checkbox">仅本实验自动执行求解命令，不逐条确认</label><p class="help">费用上限在请求之间检查，单次请求可能超限；未知费用会暂停。新增镜像占用可能达数 GB，实际新增体积可能无法估算。</p><div class="form-actions"><button id="experiment-preview" type="submit" class="primary">检查题目、模型与预算</button><button id="experiment-resolve" type="button" class="secondary" hidden>核对上次提交</button></div></form><div id="experiment-plan" hidden><h3>开始前核对</h3><p id="experiment-plan-summary"></p><ol id="experiment-plan-items"></ol><p id="experiment-plan-issues" class="field-error"></p><label class="check"><input id="experiment-ack" type="checkbox">已核对执行顺序、下载授权和整个实验的费用上限</label><button id="experiment-start" class="primary" disabled>确认并开始实验</button></div></section>
+    </section>
+    <section id="page-history" class="page" hidden>
+      <div class="page-heading"><h1>历史记录</h1><p>回看任务过程，复用已有补丁。所有记录都保存在本机。</p></div>
+      <h2>工作台任务</h2><div class="form-row"><input id="history-search" aria-label="搜索任务" placeholder="搜索标题、编号或实例"><label class="check"><input id="history-archived" type="checkbox">已归档</label><button id="history-refresh" class="secondary">查询</button></div><div id="history-list"></div><div class="form-actions"><button id="history-prev" class="secondary">上一页</button><span id="history-page" class="help"></span><button id="history-next" class="secondary">下一页</button></div>
+      <h2 class="section-gap">已有命令行记录</h2><div id="legacy-list"></div><pre id="legacy-content" class="output" hidden></pre>
+    </section>
+    <section id="page-storage" class="page" hidden><div class="page-heading"><h1>存储管理</h1><p>先查看范围和占用，再确认清理。原配置、密钥、旧评测及镜像不会自动删除。</p></div><button id="storage-refresh" class="secondary">刷新占用</button><div id="storage-summary"></div><h2 class="section-gap">可管理的工作台记录</h2><div id="storage-items"></div><button id="storage-preview" class="secondary">预览所选清理范围</button><div id="storage-confirm" class="notice" hidden><p id="storage-plan"></p><label class="check"><input type="checkbox" id="storage-ack">我确认删除以上列出的工作台文件，无法撤销</label><button id="storage-delete" class="secondary danger">确认删除</button></div></section>
+    <section id="page-run" class="page run-page" hidden>
+      <div class="run-title"><div><h1 id="run-title">任务</h1><p id="run-context"></p></div><button id="cancel" class="secondary danger">停止任务</button></div>
+      <div class="run-status" role="status" aria-live="polite" aria-atomic="true"><span id="status" class="pill"></span><span id="phase"></span><span id="elapsed"></span><span id="stats"></span></div>
+      <section id="workflow-panel" class="workflow-panel" hidden><ol id="workflow-stages" class="workflow-stages" aria-label="任务流程"></ol><p id="workflow-summary" class="help" role="status"></p><div id="workflow-actions" class="artifact-actions"></div></section>
+      <div class="artifact-actions"><button id="reuse-run" class="secondary">复制参数为新任务</button><button id="archive-run" class="text-button">归档此记录</button><button id="cleanup-run" class="secondary" hidden>重试清理所属资源</button></div>
+      <div id="approval" class="approval" hidden><h2>下一步操作需要你确认</h2><p id="approval-cwd" class="help"></p><pre id="commands"></pre><label for="feedback">补充意见（拒绝时可填写）</label><input id="feedback" placeholder="例如：先解释这条命令的用途"><div class="form-actions"><button id="approve" class="primary">批准执行</button><button id="reject" class="secondary">拒绝并继续讨论</button></div></div>
+      <div id="result-panel" class="result-panel" hidden></div>
+      <section id="run-evaluation-summary" class="evaluation-result" hidden></section>
+      <section id="inline-evaluation" class="editor-panel" hidden><h2>评测本次补丁</h2><p id="inline-evaluation-summary"></p><p class="help">固定使用这次求解保存的补丁，不调用模型。已有题目资料与镜像直接复用。</p><label class="check"><input id="inline-evaluation-data" type="checkbox">允许下载缺失的题目资料</label><label class="check"><input id="inline-evaluation-images" type="checkbox">允许下载缺失的官方镜像</label><p class="help">镜像由 Docker 管理，缺失镜像的实际新增占用未知，可能达到数 GB。</p><label class="check"><input id="inline-evaluation-ack" type="checkbox">已核对题目、补丁来源及下载授权</label><div class="form-actions"><button id="inline-evaluation-start" class="primary">确认并评测</button><button id="inline-evaluation-resolve" class="secondary" hidden>核对上次提交</button><button id="inline-evaluation-close" class="secondary">取消</button></div><p id="inline-evaluation-note" class="help" role="status"></p></section>
+      <div id="prepared-actions" class="form-actions" hidden><button id="use-for-solve" class="primary">使用本题求解</button><button id="use-for-eval" class="secondary">评测本题已有补丁</button></div>
+      <p id="run-explanation" class="help"></p><div class="tabs" role="tablist" aria-label="运行详情"><button role="tab" aria-selected="true" data-view="conversation">对话过程</button><button role="tab" aria-selected="false" data-view="logs">命令与日志</button><button role="tab" aria-selected="false" data-view="patch">提交与评测</button></div>
+      <div id="conversation-tools" class="form-actions"><button id="messages-older" class="secondary" disabled>较早消息</button><button id="messages-newer" class="secondary" disabled>较新消息</button><button id="messages-latest" class="secondary">回到最新</button><span id="messages-position" class="help" role="status"></span></div>
+      <div id="conversation" class="conversation"><p id="conversation-empty" class="help"></p></div><div id="logs-panel" hidden><p id="evaluation-progress" class="help"></p><p class="help">屏幕保留末尾 200000 个字符；完整输出可在“提交与评测”下载日志。</p><p id="logs-empty" class="help">等待任务输出日志…</p><pre id="logs" class="output"></pre></div><div id="patch" hidden><div class="artifact-actions"><button id="evaluate-existing" class="secondary" hidden>评测此补丁</button></div><div id="artifact-list" class="artifact-actions"></div><div id="changes-summary"></div><pre id="patch-content" class="output"></pre></div>
+    </section>
+    <footer><span>Mini 工作台</span><span>清楚地运行，安心地接续。</span></footer>
+  </main>
+</body></html>

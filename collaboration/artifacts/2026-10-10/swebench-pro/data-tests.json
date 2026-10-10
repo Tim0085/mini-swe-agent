@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-10",
+  "command": ".venv/Scripts/python.exe -X utf8 -m pytest local_setup/webui/tests/test_pro_data.py -q",
+  "passed": 6,
+  "failed": 0,
+  "skipped": 0,
+  "scope": [
+    "642-row official schema and public projection",
+    "4494 fixed official asset hashes; no solution paths",
+    "local HTTP source checksum rejection",
+    "official asset reuse and immutable instruction hash",
+    "full single-case loader through local HTTP",
+    "failed asset download preserves prior files and requires explicit recovery"
+  ],
+  "dependencies_installed": 0,
+  "model_calls": 0,
+  "image_layers_downloaded": 0,
+  "source_file_sha256": "bea943b94733cbfa85d54ddcdb1c060dcf17735dffbc2b91e0a7643646397ec3",
+  "manifest_file_sha256": "27bf1622ec8d9adf6c0d7188ebc381a44bfc847781d4650f3afe99db031a3751",
+  "followup_review": {
+    "passed": 26,
+    "command": ".venv/Scripts/python.exe -X utf8 -m pytest local_setup/webui/tests/test_pro_data.py local_setup/webui/tests/test_pro_cache_identity.py local_setup/webui/tests/test_rebench_identity.py -q",
+    "fixes": [
+      "Pro readiness covers complete verified assets and instruction; stat signatures avoid repeated hashing",
+      "Full provided snapshot fields reject evaluator/config/adapter conflicts with partial legacy metadata retained",
+      "Pro license matches official V2 statement",
+      "Authorized derived-cache repair restores exact official instruction/environment metadata without network",
+      "Malformed or mismatched cache is immutable to read-only calls; explicit download reloads official source before replacement"
+    ],
+    "source_sha256": {
+      "pro_data.py": "082f7d8c8ce87e48b6a4b81250cc528a2d2124e3fb11541827198c619d59a91d",
+      "bench.py": "f1768e5be58467b857b3dda462d6168ffbd3420ad7c5f3d380dcbd638bb2bbf0",
+      "library.py": "1f21f1e4deee4901ba71d4f310033fccc13b8d635eeb7dcf6c993eb07461d758",
+      "patches.py": "065a9ea9b018e0be412e82f52f774c0c025f1144eac9066ddd6e74af0f5ff5cc"
+    }
+  }
+}

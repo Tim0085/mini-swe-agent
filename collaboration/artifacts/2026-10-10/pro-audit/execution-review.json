@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-10",
+  "source_version": "93ba799332d25bf1",
+  "scope": ["worker.py", "pro_runtime.py", "pro_harness.py", "queues.py", "server.py cancellation", "pinned official V2 README and host adapter"],
+  "product_source_changed": false,
+  "external_model_requests": 0,
+  "new_image_downloads": 0,
+  "new_dependencies": 0,
+  "findings": [{
+    "id": "PRO-APPROVAL-DEADLINE",
+    "priority": 2,
+    "title": "Waiting for manual command approval does not observe the Pro wall-time deadline",
+    "file": "local_setup/webui/worker.py",
+    "lines": [35, 43],
+    "call_site": [151, 151],
+    "trigger": "Run a Pro solve with manual command confirmation and leave a pending approval unanswered past the task deadline.",
+    "impact": "The worker and execution slot remain pending indefinitely instead of capturing a partial patch and finishing at the declared 3000-second task limit. The deadline is recognized only after a user reply or subsequent model/command entry.",
+    "reproduction": "Actual local HTTP protocol service plus cached official container; direct solve used a shortened 5-second execution snapshot to bound the diagnostic without changing product source. Seven seconds after the second approval event the process was still alive with no exit status. Sending the approval then produced TimeExceeded with a captured partial patch.",
+    "boundary": "The public dispatch path still freezes 3000 seconds. The shortened diagnostic intentionally invoked solve directly; this demonstrates the same unbounded stdin approval code, without waiting 50 minutes or altering production configuration.",
+    "evidence": "approval-deadline-check.json",
+    "suggestion": "Bound the approval wait by the remaining Pro deadline and invalidate late approval tickets after timeout; preserve the current partial-capture path without executing the unapproved command. Keep existing non-Pro approval behavior."
+  }],
+  "verified": [
+    "Actual Manager/Queues cancellation during a running Pro command yielded cancelled worker and paused queue, with no auto-evaluation and no owned container residue.",
+    "Solver creation uses immutable image IDs, network none, 1 CPU and 4096 MiB; official baseline HEAD is checked before a model request.",
+    "Patch capture is relative to the verified baseline, includes committed and untracked changes, and does not trust model submission text.",
+    "Evaluation uses a fresh container and hash-checked official verifier assets; failed reward is distinct from missing or malformed reports.",
+    "Queue dispatch checks the prepared image ID and prediction hash; unknown model cost and failed solver status pause subsequent execution."
+  ],
+  "validation_limits": [
+    "No additional paid solve or download was authorized or performed.",
+    "No full 642-task execution was run; official verifier and compatibility claims retain the scope of prior fixed-source and single-instance checks.",
+    "No production service, task or user window was altered."
+  ]
+}

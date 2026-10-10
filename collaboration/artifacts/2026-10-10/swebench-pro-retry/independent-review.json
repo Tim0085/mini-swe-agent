@@ -1,0 +1,20 @@
+{
+  "reviewer": "pro_retry_review",
+  "mode": "independent_read_only",
+  "passed": true,
+  "blockers": [],
+  "checks": {
+    "new_attempt_without_overwriting_old_attempt": true,
+    "same_model_profile_protocol_and_limits": true,
+    "usage_and_estimated_cost_known": true,
+    "trajectory_predictions_and_report_patch_hash_match": true,
+    "only_current_solve_patch_evaluated": true,
+    "official_reward_file_is_one": true,
+    "official_output_has_ten_passed_tests": true,
+    "repair_tests_passed": "1/1",
+    "regression_tests_passed": "9/9",
+    "infrastructure_errors": 0,
+    "original_files_unchanged": 350,
+    "owned_containers_remaining": 0
+  }
+}

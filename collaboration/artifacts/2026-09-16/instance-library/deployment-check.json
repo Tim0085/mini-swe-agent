@@ -1,0 +1,12 @@
+{
+  "version": "1.3.0",
+  "code_version": "d72d23d86e7caf00",
+  "action": "controlled_restart",
+  "config_valid": true,
+  "key_ready": true,
+  "recent_records": 13,
+  "paid_model_calls": 0,
+  "catalog_action": "reused_verified_public_snapshot",
+  "catalog_count": 500,
+  "active_run": null
+}

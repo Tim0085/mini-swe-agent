@@ -1,0 +1,14 @@
+{
+  "duplicate_different_models": {
+    "advertised_conversation": true,
+    "actual_messages": 0,
+    "selected_model": "openai/model-b",
+    "group_count": 1
+  },
+  "long_first_message": {
+    "actual_messages": 0,
+    "truncation_flag": null,
+    "note": "预测文件只保存补丁，不包含对话；未找到题目、补丁内容与来源模型均匹配的历史轨迹。可在“评测进度”查看本次测试输出。"
+  },
+  "model_calls": 0
+}

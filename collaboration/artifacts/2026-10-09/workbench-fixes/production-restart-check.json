@@ -1,0 +1,26 @@
+{
+  "authorized": true,
+  "version": "1.5.1",
+  "source_version": "caa926a21f62d51d",
+  "update_available": false,
+  "restart_verified": true,
+  "boot_changed": true,
+  "idle": true,
+  "cleanup_pending": [],
+  "storage_initial_http_ms": 14.944,
+  "storage_scan_completed": true,
+  "storage_unknown_categories": [],
+  "existing_rebench_result": "passed",
+  "repair_tests": "4/4",
+  "regression_tests": "694/694",
+  "model_calls_unchanged": 11,
+  "estimated_cost_unchanged": 0.232104,
+  "protected_files": 341,
+  "expected_changed_files": [
+    ".local\\webui\\service.json"
+  ],
+  "unexpected_changed_files": [],
+  "new_model_calls": 0,
+  "new_image_downloads": 0,
+  "user_browser_operated": false
+}

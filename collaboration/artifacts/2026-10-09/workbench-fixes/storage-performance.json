@@ -1,0 +1,9 @@
+{
+  "scope": "read-only inventory of existing workspace; no deletion or production service restart",
+  "initial_seconds": 0.0,
+  "cached_seconds": 0.0,
+  "category_count": 9,
+  "status_visible_during_scan": true,
+  "complete": true,
+  "unknown_categories": []
+}

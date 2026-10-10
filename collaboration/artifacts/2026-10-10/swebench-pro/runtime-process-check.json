@@ -1,0 +1,20 @@
+{
+  "kind": "synthetic-cached-container-check-not-benchmark-score",
+  "runtime": {
+    "cwd": "/testbed",
+    "head": "d350420dae50c80ca33b845734c31428d62af0a8",
+    "image_id": "sha256:e082963099ed7d5a5f75a0be46e338be36faae33b2cba5289a9ddbd505997f1f",
+    "network_mode": "none",
+    "cpus": 1,
+    "memory_mb": 4096,
+    "storage_quota_enforced": false
+  },
+  "committed_and_untracked_patch_captured": true,
+  "single_command_timeout_stopped_group": true,
+  "normal_background_children_stopped": true,
+  "host_timeout_recovery_stopped_group": true,
+  "patch_stable_after_stop": true,
+  "container_removed": true,
+  "model_calls": 0,
+  "image_downloads": 0
+}
