@@ -50,7 +50,7 @@
 - 首轮 [Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815729)：Ubuntu 官方测试 595 项通过、24 项跳过、1 个已有提示；Windows 在测试前因 `.local` 父目录不存在退出。格式检查与文档构建通过。
 - 首轮 [链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815720)：原 Slack 403 和旧博客 404 已消失；vLLM 首页重试后仍为 429，另行只读核实官方页面可访问。
 - 追加 CI 修复只涉及精确的 vLLM 首页例外及 Windows CI 的目录创建。实际复制未修复的评测包，在全新临时目录执行原脚本，验证首次修复、原件备份和重复执行均正常；90 份 Markdown 链接及 Actions 语法复查通过。
-- 修复提交 `1384f0b` 已通过全部四个云端工作流：[Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149806)、[链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149789)、[格式检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149780)、[文档构建](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149785)。Windows 工作台实际为 179 项通过、34 项按原资料缓存规则跳过、4 个依赖弃用提示；Ubuntu 官方测试为 595 项通过、24 项跳过、1 个已有提示。提示未作为失败隐藏。
+- 修复提交 `1384f0b` 已通过全部四个云端工作流：[Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149806)、[链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149789)、[格式检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149780)、[文档构建](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149785)。Windows 工作台实际为 179 项通过、34 项按原资料缓存规则跳过、4 个依赖弃用提示；Ubuntu 官方测试为 606 项通过、13 项跳过、1 个已有提示。提示未作为失败隐藏。
 
 ## 验证边界
 
