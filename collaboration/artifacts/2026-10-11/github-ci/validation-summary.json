@@ -23,6 +23,25 @@
     "production_restart_performed": false
   },
   "external_model_calls_performed": false,
-  "github_push_performed": false,
-  "github_cloud_validation": "Pending user approval to commit and push."
+  "github_push_performed": true,
+  "github_first_fix_commit": "f2179140169abc3b1641708a4d011c44e6f83646",
+  "github_cloud_first_push": {
+    "pytest_run": 38075815729,
+    "upstream_tests": {"passed": 595, "skipped": 24, "warnings": 1},
+    "pylint": "success",
+    "build_docs": "success",
+    "workbench_pre_test_failure": "Missing .local parent directory on the new Windows runner; addressed by CI directory preparation.",
+    "markdown_run": 38075815720,
+    "markdown_remaining_failure": "Only the vLLM documentation homepage returned 429 after retries; addressed by an exact URL exception after independent official-page verification."
+  },
+  "followup_local_checks": {
+    "fresh_runner_backup_directory": true,
+    "real_unpatched_evaluator_applied": true,
+    "backup_preserved": true,
+    "second_run_idempotent": true,
+    "markdown_files": 90,
+    "markdown_exit_code": 0,
+    "workflow_syntax_exit_code": 0
+  },
+  "github_cloud_validation": "First-push evidence is recorded above; consult the Actions runs for each later commit's conclusion."
 }

@@ -9,9 +9,9 @@
 ## 修改范围
 
 - `.github/workflows/pytest.yaml`：官方测试明确运行 `tests`；新增 Windows 2025 / Python 3.12 的独立工作台任务，串行运行原有隔离测试。
-- Windows 任务安装已有依赖清单与 `swebench==5.0.2`，明确定位 Git Bash，再应用已有的 Windows UTF-8/LF 修复脚本。测试环境启用 UTF-8 和 Hugging Face 离线模式。
+- Windows 任务安装已有依赖清单与 `swebench==5.0.2`，明确定位 Git Bash，先创建 runner 自己的 `.local` 备份父目录，再应用已有的 Windows UTF-8/LF 修复脚本。测试环境启用 UTF-8 和 Hugging Face 离线模式。
 - Codecov 仅在配置了令牌时运行，仓库名使用当前仓库，不向原项目上传本仓库的覆盖率。
-- `.github/mlc_config.json`：仅跳过 SWE-bench 的 Slack 邀请链接；429 按工具规则重试两次，缺少有效 Retry-After 时等待 10 秒。没有把 403、404、429 全局当成成功。
+- `.github/mlc_config.json`：跳过 SWE-bench 的 Slack 邀请链接，以及已核实可访问、但 GitHub runner 持续收到 429 的 vLLM 文档首页这一精确地址；其他 429 按工具规则重试两次，缺少有效 Retry-After 时等待 10 秒。没有把 403、404、429 全局当成成功。
 - `docs/models/quickstart.md`：将旧博客地址改为已核实的官方新地址。
 - `.gitattributes`：固定评测器源码保留原始字节，防止 Windows Git 换行转换破坏清单校验。
 - `test_workbench.py`：评测边界测试使用隔离状态中的确定性数据，保留真实评测器版本和换行校验，并检查缺少评测字段时拒绝输入；不再依赖本机缓存的 Django 题目。
@@ -42,8 +42,15 @@
 - 修改后的三个相关 Actions 文件通过 actionlint 1.7.12 检查。
 - 保护基线中的 591 个文件逐字节未变，118 个 Python 包及版本未变；运行源码指纹保持 `ea85e026be468168`。脱敏汇总见 `collaboration/artifacts/2026-10-11/github-ci/validation-summary.json`。
 
-## 待确认及接续
+## GitHub 提交与云端核实
 
-- 本地验证完成后，提交和推送需要用户确认。推送前不能将 GitHub 云端检查标为通过。
-- 推送后检查新的官方测试、Windows 工作台测试及文档链接检查；外部网站可能继续出现暂时性限流。
+- 用户已明确授权提交和推送；保留用户在 Desktop 创建的 `f217914`，通过 SSH 成功推送到 `origin/main`。
+- 本仓库 SSH 命令固定使用已安装的 Git SSH 和现有私钥的绝对路径。系统 Git 与 Desktop 自带 Git 都通过远程读取验证；没有改账号登录状态、全局 SSH 设置或打开的 Desktop 窗口。Desktop 原日志为空，无法从通用提示确定当时失败的唯一原因，Desktop 界面未复测。
+- 首轮 [Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815729)：Ubuntu 官方测试 595 项通过、24 项跳过、1 个已有提示；Windows 在测试前因 `.local` 父目录不存在退出。格式检查与文档构建通过。
+- 首轮 [链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815720)：原 Slack 403 和旧博客 404 已消失；vLLM 首页重试后仍为 429，另行只读核实官方页面可访问。
+- 追加修复只涉及精确的 vLLM 首页例外及 Windows CI 的目录创建。实际复制未修复的评测包，在全新临时目录执行原脚本，验证首次修复、原件备份和重复执行均正常；90 份 Markdown 链接及 Actions 语法复查通过。后续提交的最终云端结论以各自 Actions 记录为准。
+
+## 验证边界
+
 - 干净副本跳过的缓存资料测试必须与本机完整回归一起解读，不能将离线合成检查作为模型或整个基准的成绩。
+- 外部网站以后仍可能出现新的暂时性限流；保留通用重试和其他坏链接检查。

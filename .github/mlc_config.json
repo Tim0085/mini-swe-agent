@@ -4,6 +4,9 @@
   "fallbackRetryDelay": "10s",
   "ignorePatterns": [
     {
+      "pattern": "^https://docs\\.vllm\\.ai/en/latest/$"
+    },
+    {
       "pattern": "^https://join\\.slack\\.com/t/swe-bench/shared_invite/"
     },
     {
