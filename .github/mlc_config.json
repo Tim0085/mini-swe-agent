@@ -1,5 +1,11 @@
 {
+  "retryOn429": true,
+  "retryCount": 2,
+  "fallbackRetryDelay": "10s",
   "ignorePatterns": [
+    {
+      "pattern": "^https://join\\.slack\\.com/t/swe-bench/shared_invite/"
+    },
     {
       "pattern": "https://github.com/?.*"
     },

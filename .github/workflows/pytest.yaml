@@ -3,6 +3,10 @@ name: Pytest
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+permissions:
+  contents: read
 
 on:
   push:
@@ -32,6 +36,7 @@ on:
 
 jobs:
   test:
+    name: Upstream tests (Ubuntu, Python 3.11)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -72,9 +77,40 @@ jobs:
           # mini-extra config set PORTKEY_API_KEY '${{ secrets.PORTKEY_API_KEY }}'
           mini-extra config set REQUESTY_API_KEY '${{ secrets.REQUESTY_API_KEY }}'
       - name: Run pytest
-        run: pytest -v --cov --cov-branch --cov-report=xml -n auto
+        run: python -m pytest tests -v --cov=minisweagent --cov-branch --cov-report=xml -n auto
       - name: Upload coverage reports to Codecov
+        if: env.CODECOV_TOKEN != ''
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: SWE-agent/mini-swe-agent
+          slug: ${{ github.repository }}
+
+  workbench:
+    name: Mini workbench (Windows, Python 3.12)
+    runs-on: windows-2025
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      PYTHONUTF8: '1'
+      HF_HUB_OFFLINE: '1'
+      HF_DATASETS_OFFLINE: '1'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Locate Git Bash
+        run: |
+          $taskGitRoot = Split-Path (Split-Path (Get-Command git).Source)
+          $taskBash = Join-Path $taskGitRoot 'bin/bash.exe'
+          if (!(Test-Path -LiteralPath $taskBash)) { throw 'Git Bash is missing from the runner.' }
+          "MINI_GIT_BASH=$taskBash" >> $env:GITHUB_ENV
+      - name: Install workbench test dependencies
+        run: python -m pip install -r local_setup/requirements.txt -r local_setup/webui/requirements-test.txt 'swebench==5.0.2'
+      - name: Apply existing Windows evaluator newline fix
+        run: python local_setup/fix_swebench_windows_newlines.py
+      - name: Run isolated offline workbench tests
+        run: python -m pytest -c local_setup/webui/tests/pytest.ini local_setup/webui/tests -q

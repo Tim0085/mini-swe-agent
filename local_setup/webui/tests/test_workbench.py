@@ -6,7 +6,7 @@ from uuid import uuid4
 import pytest
 from fastapi.testclient import TestClient
 
-from local_setup.webui.common import ROOT, STATE, redact, read_json
+from local_setup.webui.common import ROOT, STATE, redact, read_json, save_json
 from local_setup.webui.settings import Settings, read_settings, save_settings, replace_key
 from local_setup.webui.server import app, manager, NONCE
 from local_setup.webui.bench import prediction, summarize_report, load_instance, check_harness
@@ -134,7 +134,12 @@ def test_prediction_and_official_report_boundaries(tmp_path):
         prediction(traj,'django__django-10098')
     assert summarize_report({'completed_instances':1,'resolved_instances':0,'unresolved_instances':1,'error_instances':0})['category']=='test_failed'
     assert summarize_report({'completed_instances':0,'error_instances':1})['category']=='incomplete'
-    check_harness(load_instance('verified','django__django-10097'))
+    row = {'instance_id':'audit__harness-10097','eval_script':'pytest','image':'swebench/example:latest',
+           'log_parser':'pytest','eval_type':'unit','FAIL_TO_PASS':['test_fix'],'PASS_TO_PASS':['test_regression']}
+    save_json(STATE/'datasets/verified'/(row['instance_id']+'.json'),[row])
+    check_harness(load_instance('verified',row['instance_id']))
+    with pytest.raises(ValueError,match='评测字段'):
+        check_harness({key:value for key,value in row.items() if key!='eval_script'})
 
 
 def test_reuse_preserves_payload_and_does_not_silently_redact(client,tmp_path):

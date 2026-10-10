@@ -138,6 +138,10 @@ kind：local、offline、prepare、cache、download、catalog_sync、swebench、
 
 后续从 current-state.md 的未验证项继续。行为变更同步本方案与操作说明，新决策记录日期及原因，避免保留多份相互冲突的最终版。
 
+## GitHub 自动检查边界（2026-10-11）
+
+官方代码测试保留 Ubuntu / Python 3.11；工作台隔离测试独立使用 Windows / Python 3.12、现有测试依赖和 Git Bash。两者明确指定测试目录，避免收集第三方评测源码。固定源码的字节校验由 Git 属性保护，正式工作台运行代码及本机状态不因 CI 修复改变。实现与验收见 [GitHub 检查修复](github-ci-fixes-2026-10-11.md)。
+
 ## 1.5.0 SWE-rebench 经典榜单
 
 2026-10-08 新增固定题集 `rebench-34d5a588`，官方 `test` 切分 860 题。统一 `GET /api/benchmarks` 驱动新任务、实例库、结果筛选和实验选择器；原 Verified/Lite 接口和路径继续兼容。

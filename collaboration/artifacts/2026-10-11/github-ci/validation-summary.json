@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-11",
+  "baseline_commit": "54a5194a4d551144905d9596f0e8013aaeda359a",
+  "full_workbench_before": {"passed": 213, "warnings": 3},
+  "full_workbench_after": {"passed": 213, "warnings": 3},
+  "clean_windows_checkout": {
+    "passed": 179,
+    "skipped": 34,
+    "warnings": 3,
+    "skip_reason": "Existing tests require the local pinned Pro Parquet fixture; no automatic fixture downloads.",
+    "core_autocrlf": true,
+    "pinned_evaluator_files_verified": 42,
+    "pinned_evaluator_mismatches": 0
+  },
+  "markdown_links": {"version": "3.15.0", "files": 90, "exit_code": 0, "errors": []},
+  "workflow_syntax": {"tool": "actionlint", "version": "1.7.12", "files_checked": 3, "exit_code": 0},
+  "protection": {
+    "files_checked": 591,
+    "changed_files": [],
+    "python_packages_checked": 118,
+    "python_packages_unchanged": true,
+    "runtime_source_fingerprint": "ea85e026be468168",
+    "production_restart_performed": false
+  },
+  "external_model_calls_performed": false,
+  "github_push_performed": false,
+  "github_cloud_validation": "Pending user approval to commit and push."
+}

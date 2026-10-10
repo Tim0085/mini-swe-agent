@@ -202,6 +202,14 @@ $py = Join-Path $PWD '.venv\Scripts\python.exe'
 
 先检查现有环境与依赖再安装。requirements.txt 是服务依赖，requirements-test.txt 添加测试依赖；不要直接安装整个 dev 套件。
 
+### GitHub 自动检查
+
+官方测试和工作台测试在两个独立任务中运行：前者明确检查 `tests`，后者使用 Windows / Python 3.12，执行上面的工作台隔离测试命令。云端安装依赖和换行修复仅作用于临时 runner，不更改本机环境。没有配置 Codecov 令牌时跳过覆盖率上传。
+
+文档检查单独跳过受限制的 SWE-bench Slack 邀请链接，并对 429 做有限重试；404 和其他真实失效仍会报错。固定评测源码的 Git 属性不能删除，否则 Windows 检出可能破坏清单哈希。
+
+新 runner 缺少本机 Pro 资料缓存时，34 项资料相关测试按原规则跳过；本机完整回归继续覆盖这些测试。CI 修复不需要重启正式工作台。修复范围和实际验证见 [GitHub 检查修复](github-ci-fixes-2026-10-11.md)。
+
 必要时检查／恢复已有 Windows 换行修复：
 
 ```powershell

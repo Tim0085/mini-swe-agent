@@ -1,0 +1,2 @@
+# Pinned evaluator manifests verify exact source bytes on every platform.
+local_setup/webui/vendor/** -text
