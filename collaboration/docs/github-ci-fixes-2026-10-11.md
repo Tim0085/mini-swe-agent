@@ -45,10 +45,12 @@
 ## GitHub 提交与云端核实
 
 - 用户已明确授权提交和推送；保留用户在 Desktop 创建的 `f217914`，通过 SSH 成功推送到 `origin/main`。
-- 本仓库 SSH 命令固定使用已安装的 Git SSH 和现有私钥的绝对路径。系统 Git 与 Desktop 自带 Git 都通过远程读取验证；没有改账号登录状态、全局 SSH 设置或打开的 Desktop 窗口。Desktop 原日志为空，无法从通用提示确定当时失败的唯一原因，Desktop 界面未复测。
+- 本仓库 SSH 命令固定使用已安装的 Git SSH 和现有私钥的绝对路径。随后实际复现：默认 Windows SSH 报 `Permission denied (publickey)`，显式指定已有密钥则认证成功。Desktop 的已安装代码在启用系统 SSH 时会用环境变量覆盖仓库 SSH 命令，因此还为本机 SSH 配置追加仅匹配 `github.com` 的密钥选择项，保留原文件字节并在忽略目录备份原件。未更换、上传或打印密钥，未修改账号登录状态或打开的 Desktop 窗口。
+- 默认 Windows SSH 认证成功；Desktop 自带 Git 使用通常路径和显式系统 SSH 路径的推送预检均通过。Desktop 原日志为空，无法从通用提示确定当时失败的唯一原因；Desktop 设置和界面未接管、未复测。
 - 首轮 [Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815729)：Ubuntu 官方测试 595 项通过、24 项跳过、1 个已有提示；Windows 在测试前因 `.local` 父目录不存在退出。格式检查与文档构建通过。
 - 首轮 [链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38075815720)：原 Slack 403 和旧博客 404 已消失；vLLM 首页重试后仍为 429，另行只读核实官方页面可访问。
-- 追加修复只涉及精确的 vLLM 首页例外及 Windows CI 的目录创建。实际复制未修复的评测包，在全新临时目录执行原脚本，验证首次修复、原件备份和重复执行均正常；90 份 Markdown 链接及 Actions 语法复查通过。后续提交的最终云端结论以各自 Actions 记录为准。
+- 追加 CI 修复只涉及精确的 vLLM 首页例外及 Windows CI 的目录创建。实际复制未修复的评测包，在全新临时目录执行原脚本，验证首次修复、原件备份和重复执行均正常；90 份 Markdown 链接及 Actions 语法复查通过。
+- 修复提交 `1384f0b` 已通过全部四个云端工作流：[Pytest](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149806)、[链接检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149789)、[格式检查](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149780)、[文档构建](https://github.com/Tim0085/mini-swe-agent/actions/runs/38076149785)。Windows 工作台实际为 179 项通过、34 项按原资料缓存规则跳过、4 个依赖弃用提示；Ubuntu 官方测试为 595 项通过、24 项跳过、1 个已有提示。提示未作为失败隐藏。
 
 ## 验证边界
 

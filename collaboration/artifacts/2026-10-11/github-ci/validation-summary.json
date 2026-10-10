@@ -43,5 +43,26 @@
     "markdown_exit_code": 0,
     "workflow_syntax_exit_code": 0
   },
-  "github_cloud_validation": "First-push evidence is recorded above; consult the Actions runs for each later commit's conclusion."
+  "github_cloud_final_code": {
+    "commit": "1384f0b69000e6d68b165e97e00f1079792f6500",
+    "pytest": {"run_id": 38076149806, "conclusion": "success"},
+    "upstream_tests": {"passed": 595, "skipped": 24, "warnings": 1},
+    "windows_workbench_tests": {"passed": 179, "skipped": 34, "warnings": 4},
+    "markdown_links": {"run_id": 38076149789, "conclusion": "success"},
+    "pylint": {"run_id": 38076149780, "conclusion": "success"},
+    "build_docs": {"run_id": 38076149785, "conclusion": "success"}
+  },
+  "ssh_authentication": {
+    "existing_registered_key_reused": true,
+    "repository_ssh_command_uses_absolute_paths": true,
+    "default_windows_ssh_failure_reproduced": true,
+    "github_only_identity_selection_added": true,
+    "original_ssh_config_bytes_preserved_and_backed_up_privately": true,
+    "default_windows_ssh_authentication": "success",
+    "desktop_bundled_git_push_dry_run": "success",
+    "desktop_system_ssh_push_dry_run": "success",
+    "desktop_ui_operated": false,
+    "desktop_ui_retested": false
+  },
+  "github_cloud_validation": "All four workflows passed for the final CI code commit; later documentation commits have their own Actions records."
 }
